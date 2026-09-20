@@ -1,46 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document>
 <name>FISKEØYE – Glomma ved Skarnes</name>
-<Placemark><name>1 Glomma km 6.5</name><description>Gjedde 100, Mort 100, Abbor 95</description><Point><coordinates>11.67228,60.23942,0</coordinates></Point></Placemark>
-<Placemark><name>2 Glomma km 4.7</name><description>Vederbuk 100, Harr 99, Ørret 98</description><Point><coordinates>11.67728,60.25499,0</coordinates></Point></Placemark>
-<Placemark><name>3 Glomma km 8.9</name><description>Abbor 100, Brasme 100, Vederbuk 100</description><Point><coordinates>11.66247,60.22089,0</coordinates></Point></Placemark>
-<Placemark><name>4 Glomma km 5.7</name><description>Brasme 100, Vederbuk 100, Abbor 99</description><Point><coordinates>11.67120,60.24655,0</coordinates></Point></Placemark>
-<Placemark><name>5 Glomma km 10.9</name><description>Abbor 100, Sik 100, Brasme 100</description><Point><coordinates>11.63531,60.20953,0</coordinates></Point></Placemark>
-<Placemark><name>6 Glomma km 7.0</name><description>Harr 100, Ørret 97, Lake 80</description><Point><coordinates>11.67236,60.23501,0</coordinates></Point></Placemark>
-<Placemark><name>7 Glomma km 0.8</name><description>Ørret 100, Vederbuk 85, Harr 78</description><Point><coordinates>11.73504,60.24323,0</coordinates></Point></Placemark>
-<Placemark><name>8 Glomma km 4.3</name><description>Harr 100, Ørret 94, Vederbuk 75</description><Point><coordinates>11.68166,60.25792,0</coordinates></Point></Placemark>
-<Placemark><name>9 Glomma km 5.2</name><description>Abbor 100, Sik 100, Lake 100</description><Point><coordinates>11.67438,60.25077,0</coordinates></Point></Placemark>
-<Placemark><name>10 Glomma km 6.7</name><description>Gjedde 100, Abbor 100, Mort 100</description><Point><coordinates>11.67235,60.23774,0</coordinates></Point></Placemark>
-<Placemark><name>11 Glomma km 7.5</name><description>Sik 100, Lake 100, Gjørs 100</description><Point><coordinates>11.67036,60.23060,0</coordinates></Point></Placemark>
-<Placemark><name>12 Glomma km 4.5</name><description>Ørret 100, Harr 100, Vederbuk 91</description><Point><coordinates>11.67964,60.25638,0</coordinates></Point></Placemark>
-<Placemark><name>13 Glomma km 11.4</name><description>Lake 100, Gjørs 84, Sik 83</description><Point><coordinates>11.62662,60.20822,0</coordinates></Point></Placemark>
-<Placemark><name>14 Glomma km 4.6</name><description>Ørret 100, Harr 100, Vederbuk 86</description><Point><coordinates>11.67809,60.25580,0</coordinates></Point></Placemark>
-<Placemark><name>15 Glomma km 4.7</name><description>Vederbuk 100, Brasme 96, Gjørs 95</description><Point><coordinates>11.67805,60.25480,0</coordinates></Point></Placemark>
-<Placemark><name>16 Glomma km 9.3</name><description>Lake 99, Gjørs 83, Sik 80</description><Point><coordinates>11.65606,60.21923,0</coordinates></Point></Placemark>
-<Placemark><name>17 Glomma km 14.4</name><description>Lake 99, Sik 86, Gjørs 86</description><Point><coordinates>11.57978,60.19692,0</coordinates></Point></Placemark>
-<Placemark><name>18 Glomma km 8.5</name><description>Lake 98, Sik 83, Gjørs 82</description><Point><coordinates>11.66927,60.22179,0</coordinates></Point></Placemark>
-<Placemark><name>19 Glomma km 7.3</name><description>Harr 97, Ørret 91, Vederbuk 72</description><Point><coordinates>11.67054,60.23242,0</coordinates></Point></Placemark>
-<Placemark><name>20 Glomma km 14.5</name><description>Lake 96, Sik 89, Gjørs 85</description><Point><coordinates>11.57843,60.19640,0</coordinates></Point></Placemark>
-<Placemark><name>21 Glomma km 4.1</name><description>Harr 95, Ørret 87, Vederbuk 68</description><Point><coordinates>11.68534,60.25780,0</coordinates></Point></Placemark>
-<Placemark><name>22 Glomma km 1.9</name><description>Sik 94, Gjørs 91, Brasme 87</description><Point><coordinates>11.71666,60.24640,0</coordinates></Point></Placemark>
-<Placemark><name>23 Glomma km 2.7</name><description>Sik 93, Gjørs 89, Brasme 86</description><Point><coordinates>11.70501,60.25063,0</coordinates></Point></Placemark>
-<Placemark><name>24 Glomma km 7.4</name><description>Harr 93, Ørret 93, Vederbuk 76</description><Point><coordinates>11.67123,60.23150,0</coordinates></Point></Placemark>
-<Placemark><name>25 Glomma km 1.0</name><description>Sik 92, Brasme 90, Gjørs 87</description><Point><coordinates>11.73149,60.24378,0</coordinates></Point></Placemark>
-<Placemark><name>26 Glomma km 3.1</name><description>Sik 92, Gjørs 88, Lake 85</description><Point><coordinates>11.69944,60.25296,0</coordinates></Point></Placemark>
-<Placemark><name>27 Glomma km 6.4</name><description>Brasme 92, Abbor 81, Vederbuk 67</description><Point><coordinates>11.67272,60.24039,0</coordinates></Point></Placemark>
-<Placemark><name>28 Glomma km 0.1</name><description>Harr 91, Ørret 86, Lake 72</description><Point><coordinates>11.74739,60.24245,0</coordinates></Point></Placemark>
-<Placemark><name>29 Glomma km 0.4</name><description>Ørret 91, Lake 83, Vederbuk 78</description><Point><coordinates>11.74223,60.24310,0</coordinates></Point></Placemark>
-<Placemark><name>30 Glomma km 5.8</name><description>Brasme 91, Vederbuk 90, Sik 86</description><Point><coordinates>11.67072,60.24567,0</coordinates></Point></Placemark>
-<Placemark><name>31 Glomma km 7.8</name><description>Sik 91, Gjørs 86, Brasme 85</description><Point><coordinates>11.67167,60.22795,0</coordinates></Point></Placemark>
-<Placemark><name>32 Glomma km 12.5</name><description>Lake 91, Sik 79, Gjørs 79</description><Point><coordinates>11.60732,60.20593,0</coordinates></Point></Placemark>
-<Placemark><name>33 Glomma km 8.8</name><description>Lake 90, Sik 77, Gjørs 76</description><Point><coordinates>11.66438,60.22060,0</coordinates></Point></Placemark>
-<Placemark><name>34 Glomma km 15.7</name><description>Lake 89, Sik 76, Gjørs 72</description><Point><coordinates>11.56703,60.18771,0</coordinates></Point></Placemark>
-<Placemark><name>35 Glomma km 10.5</name><description>Ørret 88, Vederbuk 81, Lake 79</description><Point><coordinates>11.64146,60.21148,0</coordinates></Point></Placemark>
-<Placemark><name>36 Glomma km 3.5</name><description>Lake 87, Sik 84, Gjørs 81</description><Point><coordinates>11.69470,60.25560,0</coordinates></Point></Placemark>
-<Placemark><name>37 Glomma km 6.0</name><description>Brasme 83, Vederbuk 80, Sik 77</description><Point><coordinates>11.67043,60.24383,0</coordinates></Point></Placemark>
-<Placemark><name>38 Glomma km 9.7</name><description>Ørret 81, Harr 81, Lake 70</description><Point><coordinates>11.64984,60.21738,0</coordinates></Point></Placemark>
-<Placemark><name>39 Glomma km 3.8</name><description>Harr 80, Ørret 72, Vederbuk 56</description><Point><coordinates>11.69073,60.25749,0</coordinates></Point></Placemark>
-<Placemark><name>40 Glomma km 1.1</name><description>Brasme 77, Vederbuk 77, Sik 74</description><Point><coordinates>11.72970,60.24385,0</coordinates></Point></Placemark>
-<Placemark><name>41 Glomma km 5.4</name><description>Vederbuk 73, Brasme 69, Mort 68</description><Point><coordinates>11.67266,60.24913,0</coordinates></Point></Placemark>
-<Placemark><name>42 Glomma km 9.2</name><description>Mort 50, Gjedde 49, Vederbuk 45</description><Point><coordinates>11.65725,60.22003,0</coordinates></Point></Placemark>
+<Placemark><name>1 Hauggard · km 0.2</name><description>Gjedde 100, Abbor 95, Mort 90</description><Point><coordinates>11.74514,60.24181,0</coordinates></Point></Placemark>
+<Placemark><name>2 Lukmoen · km 7.5</name><description>Gjedde 100, Mort 100, Brasme 100</description><Point><coordinates>11.66842,60.23058,0</coordinates></Point></Placemark>
+<Placemark><name>3 Sætra · km 14.3</name><description>Gjedde 100, Abbor 100, Brasme 100</description><Point><coordinates>11.58056,60.19830,0</coordinates></Point></Placemark>
+<Placemark><name>4 Oppåkerbekken · km 15.4</name><description>Gjedde 100, Abbor 100, Brasme 100</description><Point><coordinates>11.57195,60.18890,0</coordinates></Point></Placemark>
+<Placemark><name>5 Tanumkollen · km 3.5</name><description>Mort 100, Gjedde 99, Brasme 94</description><Point><coordinates>11.69358,60.25495,0</coordinates></Point></Placemark>
+<Placemark><name>6 Semingsrud · km 15.8</name><description>Abbor 100, Mort 100, Brasme 100</description><Point><coordinates>11.56402,60.18782,0</coordinates></Point></Placemark>
+<Placemark><name>7 Snekkermoen · km 1.5</name><description>Mort 100, Brasme 94, Sik 90</description><Point><coordinates>11.72381,60.24583,0</coordinates></Point></Placemark>
+<Placemark><name>8 Korsmoenga · km 5.1</name><description>Abbor 100, Brasme 97, Lake 96</description><Point><coordinates>11.67584,60.25142,0</coordinates></Point></Placemark>
+<Placemark><name>9 Staksrud · km 14.3</name><description>Abbor 100, Brasme 99, Sik 97</description><Point><coordinates>11.58174,60.19670,0</coordinates></Point></Placemark>
+<Placemark><name>10 Skarnes · km 4.4</name><description>Ørret 100, Harr 100, Sik 67</description><Point><coordinates>11.68198,60.25639,0</coordinates></Point></Placemark>
+<Placemark><name>11 Sundvoll · km 10.5</name><description>Ørret 100, Harr 100, Vederbuk 68</description><Point><coordinates>11.64307,60.21059,0</coordinates></Point></Placemark>
+<Placemark><name>12 Sundvoll · km 10.5</name><description>Harr 100, Ørret 99, Sik 71</description><Point><coordinates>11.63931,60.21268,0</coordinates></Point></Placemark>
+<Placemark><name>13 Skarnes · km 4.5</name><description>Ørret 100, Harr 100, Vederbuk 91</description><Point><coordinates>11.68065,60.25605,0</coordinates></Point></Placemark>
+<Placemark><name>14 Lilleset · km 8.2</name><description>Sik 100, Lake 100, Gjørs 100</description><Point><coordinates>11.67292,60.22415,0</coordinates></Point></Placemark>
+<Placemark><name>15 Bruneset · km 11.4</name><description>Sik 100, Lake 100, Gjørs 99</description><Point><coordinates>11.62605,60.20957,0</coordinates></Point></Placemark>
+<Placemark><name>16 Glommenstrand · km 15.1</name><description>Sik 100, Lake 100, Gjørs 100</description><Point><coordinates>11.57557,60.19129,0</coordinates></Point></Placemark>
+<Placemark><name>17 Semingsrud · km 15.7</name><description>Sik 100, Lake 100, Gjørs 98</description><Point><coordinates>11.56791,60.18726,0</coordinates></Point></Placemark>
+<Placemark><name>18 Korsmoenga · km 5.0</name><description>Lake 100, Gjørs 100, Sik 100</description><Point><coordinates>11.67633,60.25222,0</coordinates></Point></Placemark>
+<Placemark><name>19 Staksrud · km 14.8</name><description>Gjørs 100, Sik 100, Lake 100</description><Point><coordinates>11.57702,60.19402,0</coordinates></Point></Placemark>
+<Placemark><name>20 Ullern · km 10.9</name><description>Gjørs 100, Sik 100, Lake 100</description><Point><coordinates>11.63410,60.21083,0</coordinates></Point></Placemark>
+<Placemark><name>21 Dysterudmoen · km 13.1</name><description>Sik 100, Lake 100, Gjørs 99</description><Point><coordinates>11.59854,60.20289,0</coordinates></Point></Placemark>
+<Placemark><name>22 Sandnesmoen · km 6.2</name><description>Sik 100, Lake 87, Ørret 76</description><Point><coordinates>11.67031,60.24196,0</coordinates></Point></Placemark>
+<Placemark><name>23 Lukmoen · km 7.5</name><description>Sik 100, Lake 87, Ørret 86</description><Point><coordinates>11.67313,60.23063,0</coordinates></Point></Placemark>
+<Placemark><name>24 Gjersøyen · km 12.7</name><description>Sik 100, Lake 91, Ørret 76</description><Point><coordinates>11.60532,60.20363,0</coordinates></Point></Placemark>
+<Placemark><name>25 Glomma km 11.4</name><description>Vederbuk 100, Sik 99, Lake 97</description><Point><coordinates>11.62702,60.20728,0</coordinates></Point></Placemark>
+<Placemark><name>26 Glommenstrand · km 15.2</name><description>Gjørs 100, Sik 100, Lake 100</description><Point><coordinates>11.57462,60.19044,0</coordinates></Point></Placemark>
+<Placemark><name>27 Gjersøyen · km 12.4</name><description>Mort 99, Abbor 96, Brasme 94</description><Point><coordinates>11.61022,60.20478,0</coordinates></Point></Placemark>
+<Placemark><name>28 Øvre Krybelsrud · km 0.5</name><description>Ørret 99, Harr 96, Vederbuk 94</description><Point><coordinates>11.74057,60.24464,0</coordinates></Point></Placemark>
+<Placemark><name>29 Krybelsrud · km 0.8</name><description>Ørret 99, Harr 95, Vederbuk 94</description><Point><coordinates>11.73496,60.24249,0</coordinates></Point></Placemark>
+<Placemark><name>30 Øvre Krybelsrud · km 0.7</name><description>Ørret 99, Harr 97, Lake 91</description><Point><coordinates>11.73693,60.24438,0</coordinates></Point></Placemark>
+<Placemark><name>31 Snekkermoen · km 5.6</name><description>Sik 98, Mort 93, Brasme 92</description><Point><coordinates>11.67053,60.24758,0</coordinates></Point></Placemark>
+<Placemark><name>32 Dysterud · km 13.8</name><description>Sik 98, Lake 98, Gjørs 98</description><Point><coordinates>11.59086,60.19786,0</coordinates></Point></Placemark>
+<Placemark><name>33 Lillesetbrua · km 8.6</name><description>Sik 98, Lake 97, Vederbuk 97</description><Point><coordinates>11.66908,60.22040,0</coordinates></Point></Placemark>
+<Placemark><name>34 Snekkermoen · km 5.6</name><description>Sik 97, Lake 97, Gjørs 96</description><Point><coordinates>11.67372,60.24712,0</coordinates></Point></Placemark>
+<Placemark><name>35 Øvre Krybelsrud · km 0.5</name><description>Vederbuk 97, Ørret 95, Harr 90</description><Point><coordinates>11.74039,60.24232,0</coordinates></Point></Placemark>
+<Placemark><name>36 Taugbøl · km 8.7</name><description>Sik 97, Lake 96, Gjørs 95</description><Point><coordinates>11.66673,60.21985,0</coordinates></Point></Placemark>
+<Placemark><name>37 Sandnesmoen · km 6.1</name><description>Mort 96, Brasme 88, Gjedde 83</description><Point><coordinates>11.67301,60.24314,0</coordinates></Point></Placemark>
+<Placemark><name>38 Øvre Krybelsrud · km 0.4</name><description>Ørret 95, Harr 92, Vederbuk 90</description><Point><coordinates>11.74256,60.24460,0</coordinates></Point></Placemark>
+<Placemark><name>39 Disenå · km 10.8</name><description>Ørret 94, Harr 91, Lake 85</description><Point><coordinates>11.63790,60.20899,0</coordinates></Point></Placemark>
+<Placemark><name>40 Snekkermoen · km 5.9</name><description>Mort 94, Brasme 90, Gjedde 83</description><Point><coordinates>11.66874,60.24483,0</coordinates></Point></Placemark>
+<Placemark><name>41 Øvre Krybelsrud · km 0.6</name><description>Vederbuk 93, Ørret 92, Gjedde 90</description><Point><coordinates>11.73860,60.24237,0</coordinates></Point></Placemark>
+<Placemark><name>42 Huken · km 6.6</name><description>Ørret 93, Harr 88, Lake 46</description><Point><coordinates>11.67206,60.23857,0</coordinates></Point></Placemark>
+<Placemark><name>43 Lindal · km 1.7</name><description>Mort 93, Brasme 88, Gjedde 82</description><Point><coordinates>11.71799,60.24388,0</coordinates></Point></Placemark>
+<Placemark><name>44 Sandnesmoen · km 6.0</name><description>Brasme 93, Mort 80, Sik 78</description><Point><coordinates>11.66887,60.24376,0</coordinates></Point></Placemark>
+<Placemark><name>45 Ellefsrud · km 0.1</name><description>Ørret 92, Harr 88, Vederbuk 59</description><Point><coordinates>11.74816,60.24378,0</coordinates></Point></Placemark>
+<Placemark><name>46 Disen · km 10.1</name><description>Ørret 92, Harr 88, Vederbuk 59</description><Point><coordinates>11.64796,60.21359,0</coordinates></Point></Placemark>
+<Placemark><name>47 Meldisen · km 9.5</name><description>Ørret 92, Lake 90, Harr 86</description><Point><coordinates>11.65423,60.21750,0</coordinates></Point></Placemark>
+<Placemark><name>48 Dysterud · km 13.9</name><description>Brasme 92, Abbor 87, Gjedde 84</description><Point><coordinates>11.58890,60.19738,0</coordinates></Point></Placemark>
+<Placemark><name>49 Tanumkollen · km 3.7</name><description>Ørret 91, Harr 87, Lake 82</description><Point><coordinates>11.69082,60.25587,0</coordinates></Point></Placemark>
+<Placemark><name>50 Løken · km 7.2</name><description>Ørret 90, Harr 82, Lake 45</description><Point><coordinates>11.67275,60.23315,0</coordinates></Point></Placemark>
+<Placemark><name>51 Lukmoen · km 7.3</name><description>Harr 90, Ørret 87, Vederbuk 78</description><Point><coordinates>11.67273,60.23231,0</coordinates></Point></Placemark>
+<Placemark><name>52 Kremmerstuen · km 9.2</name><description>Lake 90, Harr 89, Ørret 88</description><Point><coordinates>11.65668,60.22063,0</coordinates></Point></Placemark>
+<Placemark><name>53 Norddisen · km 9.0</name><description>Abbor 89, Gjedde 86, Ørret 86</description><Point><coordinates>11.66124,60.21970,0</coordinates></Point></Placemark>
+<Placemark><name>54 Norddisen · km 8.9</name><description>Harr 88, Ørret 88, Lake 80</description><Point><coordinates>11.66288,60.21988,0</coordinates></Point></Placemark>
+<Placemark><name>55 Skarnes · km 4.0</name><description>Gjedde 85, Mort 80, Vederbuk 78</description><Point><coordinates>11.68663,60.25665,0</coordinates></Point></Placemark>
 </Document></kml>

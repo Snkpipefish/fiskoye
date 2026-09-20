@@ -39,13 +39,13 @@ def segment_stats(comp: dict, tr, segs: list[dict], inv) -> None:
             vegm = np.isfinite(nv) & np.isfinite(nw)
             s[f"veg_{side}"] = float(np.mean((nv[vegm] > 0.25) & (nw[vegm] > -0.25))) if vegm.any() else np.nan
             sandm = np.isfinite(rd) & np.isfinite(nw)
-            s[f"sand_{side}"] = float(np.mean((rd[sandm] > 0.10) & (nw[sandm] < 0.25) & (nw[sandm] > -0.3))) if sandm.any() else np.nan
+            s[f"sand_{side}"] = float(np.mean((rd[sandm] > 0.06) & (nw[sandm] < 0.25) & (nw[sandm] > -0.3))) if sandm.any() else np.nan
             # landsiden: 15 og 35 m utover
             lx = np.array([bx + sign * nx * o + tx * a for o in (15, 35) for a in alongs])
             ly = np.array([by + sign * ny * o + ty * a for o in (15, 35) for a in alongs])
             lon, lat = inv.transform(lx, ly)
             lv = _sample(ndvi, tr, lon, lat)
-            tre = _frac(lv, lambda v: v > 0.55)
+            tre = _frac(lv, lambda v: v > 0.65)   # dyrket mark i juli ligger ofte 0,5–0,65
             s[f"tre_{side}"] = tre
             mean_ndvi = float(np.nanmean(lv)) if np.isfinite(lv).any() else np.nan
             s[f"banktype_{side}"] = ("skog/kratt" if (tre if np.isfinite(tre) else 0) > 0.5 else "eng/dyrket" if (mean_ndvi if np.isfinite(mean_ndvi) else 0) > 0.3 else "åpen/bebygd")

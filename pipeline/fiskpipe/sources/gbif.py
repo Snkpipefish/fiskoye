@@ -12,27 +12,42 @@ LATIN = {"Esox lucius": "gjedde", "Perca fluviatilis": "abbor", "Salmo trutta": 
          "Leuciscus idus": "vederbuk", "Sander lucioperca": "gjors"}
 
 
-def class_key(name="Actinopterygii") -> int | None:
-    d = cached_json(f"{API}/species/match", {"name": name, "rank": "CLASS"}, subdir="gbif")
-    return d.get("usageKey") or d.get("classKey")
+def species_key(latin: str) -> int | None:
+    d = cached_json(f"{API}/species/match", {"name": latin}, subdir="gbif")
+    return d.get("usageKey") if d.get("matchType") in ("EXACT", "FUZZY") else None
 
 
-def occurrences(bbox, key: int, max_pages: int = 20) -> list[dict]:
+def _poly(bbox):
     s, w, n, e = bbox
-    poly = f"POLYGON(({w} {s},{e} {s},{e} {n},{w} {n},{w} {s}))"
-    out = []
-    off = 0
-    while off < max_pages * 300:
-        r = cached_json(f"{API}/occurrence/search", {"classKey": key, "geometry": poly, "hasCoordinate": "true", "limit": 300, "offset": off}, subdir="gbif")
-        out += [{"species": o.get("species"), "lat": o.get("decimalLatitude"), "lon": o.get("decimalLongitude"),
-                 "year": o.get("year"), "month": o.get("month")} for o in r.get("results", [])]
-        if r.get("endOfRecords", True):
-            break
-        off += 300
-    return out
+    return f"POLYGON(({w} {s},{e} {s},{e} {n},{w} {n},{w} {s}))"
 
 
-def summarize(local: list[dict], regional: list[dict]) -> dict:
+def counts(bbox, key: int) -> tuple[int, list[int]]:
+    """Antall forekomster i bbox og månedsfordeling (facet), uten å laste ned enkeltposter."""
+    r = cached_json(f"{API}/occurrence/search", {"taxonKey": key, "geometry": _poly(bbox), "hasCoordinate": "true", "limit": 0, "facet": "month", "facetLimit": 12}, subdir="gbif")
+    months = [0] * 12
+    for f in r.get("facets", []):
+        if f.get("field") == "MONTH":
+            for c in f.get("counts", []):
+                m = int(c["name"]); months[m - 1] = int(c["count"])
+    return int(r.get("count", 0)), months
+
+
+def survey(bbox, regional_bbox) -> dict:
+    """Per art: n_area, n_region, måneder (regionalt) og presence-status."""
+    res = {}
+    for latin, sid in LATIN.items():
+        key = species_key(latin)
+        if not key:
+            res[sid] = {"n_area": 0, "n_region": 0, "months": [0] * 12, "presence": "usikker"}
+            continue
+        n_l, _ = counts(bbox, key)
+        n_r, months = counts(regional_bbox, key)
+        res[sid] = {"n_area": n_l, "n_region": n_r, "months": months, "presence": "sikker" if n_l >= 3 else "mulig" if n_r >= 3 else "usikker", "taxonKey": key}
+    return res
+
+
+def summarize_records(local: list[dict], regional: list[dict]) -> dict:
     """Per art: antall lokalt/regionalt, måneder (lokalt+regionalt) og presence-status."""
     res = {}
     loc = Counter(LATIN.get(o["species"]) for o in local if o.get("species") in LATIN)

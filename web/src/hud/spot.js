@@ -24,7 +24,7 @@ export class SpotPanel {
       ...Object.keys(LABELS).filter((k) => r.comps[k] != null).map((k) => [`f_${LABELS[k]}`, fmt(r.comps[k]), FORMULA[k]]),
       ['dybde (estimat)', `${fmt(p.dybde_est, 1)} m`, 'h_Manning · e^(0,35·z_S2)'], ['bredde / dybde / fart', `${fmt(p.w, 0)} m / ${fmt(p.h, 1)} m / ${fmt(p.v, 2)} m/s`, 'Manning: Q = (1/n)·w·h·R^(2/3)·S^(1/2)'],
       ['strøm', p.klasse_strom, '<0,15 stille · <0,4 svak · <0,8 moderat · stryk'], ['vegetasjon', fmt(p.veg), 'andel NDVI>0,25 innen 30 m fra bredden'],
-      ['skygge', fmt(p.skygge), '0,6·trekroner + 0,4·(1−hillshade SV)'], ['bredd', `${p.side_navn || ''} · ${p.banktype || ''}`, ''],
+      ['skygge', fmt(p.skygge), '0,5·trekroner + 0,5·(1−hillshade SV)'], ['bredd', `${p.side_navn || ''} · ${p.banktype || ''}`, ''],
       ...Object.entries(p.struct || {}).filter(([, v]) => v > 0.05).map(([k, v]) => [`struktur: ${k}`, fmt(v), '']),
     ];
     this.el.innerHTML = `

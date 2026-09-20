@@ -6,30 +6,49 @@ from shapely.geometry import LineString, MultiPolygon, Point, Polygon
 from shapely.ops import unary_union
 
 
-def river_polygon(polys: list[dict], tr) -> MultiPolygon | Polygon | None:
-    """Union av OSM-elveflater i UTM. polys: [{"outer": [[(lon,lat)..]], "inner": [[..]]}]."""
-    geoms = []
+def river_polygon(polys: list[dict], tr, bbox_utm=None, chain_line=None):
+    """Elveflate i UTM fra OSM-ringer. Ringene kan være klippet av Overpass (out geom(bbox)) og dermed åpne;
+    derfor polygoniseres alle ringlinjer sammen med bbox-kanten, og flatene som berører senterlinja beholdes.
+    polys: [{"outer": [[(lon,lat)..]], "inner": [[..]]}]."""
+    from shapely.geometry import box
+    from shapely.ops import polygonize
+    from shapely.ops import linemerge
+    raw = []
+    B = box(*bbox_utm) if bbox_utm is not None else None
     for p in polys:
-        for ring in p["outer"]:
-            if len(ring) < 4:
+        for ring in p["outer"] + p["inner"]:
+            if len(ring) < 2:
                 continue
             xs, ys = tr.transform([q[0] for q in ring], [q[1] for q in ring])
-            holes = []
-            for h in p["inner"]:
-                if len(h) >= 4:
-                    hx, hy = tr.transform([q[0] for q in h], [q[1] for q in h])
-                    holes.append(list(zip(hx, hy)))
-            try:
-                g = Polygon(list(zip(xs, ys)), holes)
-                if not g.is_valid:
-                    g = g.buffer(0)
-                if g.area > 100:
-                    geoms.append(g)
-            except Exception:  # noqa: BLE001
-                continue
-    if not geoms:
+            raw.append(LineString(list(zip(xs, ys))))
+    if not raw:
         return None
-    return unary_union(geoms)
+    # multipolygon-ringer består av flere veier: sy dem sammen først
+    merged_rings = linemerge(unary_union(raw))
+    parts = [merged_rings] if merged_rings.geom_type == "LineString" else list(merged_rings.geoms)
+    lines = []
+    for l in parts:
+        coords = list(l.coords)
+        if B is not None and not l.is_ring:
+            # fortsatt åpen (klippet av Overpass): forleng endepunktene til bbox-kanten slik at flaten lukkes
+            for idx, pos in ((0, 0), (-1, len(coords))):
+                pt = Point(coords[idx]); edge = B.exterior.interpolate(B.exterior.project(pt))
+                coords.insert(pos, (edge.x, edge.y))
+        lines.append(LineString(coords))
+    if B is not None:
+        lines.append(B.exterior)
+    merged = unary_union(lines)
+    faces = list(polygonize(merged))
+    if chain_line is not None:
+        # behold flater som inneholder punkter på senterlinja (landflatene rundt gjør ikke det)
+        pts = [Point(c) for c in chain_line.coords]
+        faces = [f for f in faces if sum(f.contains(pt) for pt in pts) >= 2]
+    if bbox_utm is not None:
+        faces = [f for f in faces if f.area < 0.5 * box(*bbox_utm).area]
+    faces = [f for f in faces if f.area > 100]
+    if not faces:
+        return None
+    return unary_union(faces)
 
 
 def normals(xy: np.ndarray) -> np.ndarray:

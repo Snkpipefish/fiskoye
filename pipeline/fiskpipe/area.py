@@ -73,16 +73,11 @@ def run_area(slug: str, skip_sentinel=False, skip_images=False, skip_gbif=False)
     nrm = channel.normals(xy)
     hs = kartverket.hillshade(dtm)
 
-    # behold bare vannflater som berører hovedløpet (innsjøer og andre elver filtreres bort)
+    # elveflate: polygoniser OSM-ringer (klippet til bbox) og behold flatene som berører hovedløpet
     from shapely.geometry import LineString
-    chain_line = LineString(xy).buffer(40)
-    polys_touch = []
-    for p_ in polys:
-        g = channel.river_polygon([p_], tr)
-        if g is not None and g.intersects(chain_line):
-            polys_touch.append(p_)
-    print(f"  {len(polys_touch)} av {len(polys)} vannflater berører hovedløpet")
-    poly = channel.river_polygon(polys_touch, tr)
+    chain_line = LineString(xy)
+    poly = channel.river_polygon(polys, tr, bu, chain_line)
+    print(f"  elveflate: {'%.2f km²' % (poly.area / 1e6) if poly is not None else 'mangler – bruker w = 3√Q'}")
     q_monthly = None
     stations = []
     try:
@@ -168,9 +163,8 @@ def run_area(slug: str, skip_sentinel=False, skip_images=False, skip_gbif=False)
     if not skip_gbif:
         try:
             print(f"[{slug}] GBIF …", flush=True)
-            key = gbif.class_key()
             reg = [bbox[0] - 0.5, bbox[1] - 0.5, bbox[2] + 0.5, bbox[3] + 0.5]
-            gb = gbif.summarize(gbif.occurrences(bbox, key), gbif.occurrences(reg, key, max_pages=40))
+            gb = gbif.survey(bbox, reg)
             print("  GBIF:", {k: (v["n_area"], v["n_region"]) for k, v in gb.items()})
         except Exception as ex:  # noqa: BLE001
             print("  GBIF feilet:", ex)

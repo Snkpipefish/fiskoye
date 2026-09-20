@@ -22,11 +22,11 @@
 60.235,
 11.64
 ],
-"generated": "2026-09-20T12:29:18+00:00",
+"generated": "2026-09-20T12:55:41+00:00",
 "stats": {
 "segmenter": 167,
-"spots": 42,
-"elveflater_osm": 0,
+"spots": 55,
+"elveflater_osm": 9,
 "s2_scener": 3
 },
 "waters": [
@@ -68,96 +68,12 @@
 "lon": 11.545
 },
 {
-"name": "Funnefoss",
-"kind": "dam",
-"lat": 60.168,
-"lon": 11.531
-},
-{
-"name": "dam/terskel",
-"kind": "dam",
-"lat": 60.169,
-"lon": 11.532
-},
-{
-"name": "dam/terskel",
-"kind": "dam",
-"lat": 60.263,
-"lon": 11.598
-},
-{
-"name": "dam/terskel",
-"kind": "dam",
-"lat": 60.263,
-"lon": 11.598
-},
-{
-"name": "dam/terskel",
-"kind": "dam",
-"lat": 60.254,
-"lon": 11.561
-},
-{
-"name": "dam/terskel",
-"kind": "dam",
-"lat": 60.247,
-"lon": 11.506
-},
-{
 "name": "Glomvegen",
 "kind": "bru",
 "lat": 60.257,
 "lon": 11.678
 },
 {
-"name": "Funnefoss bru",
-"kind": "bru",
-"lat": 60.168,
-"lon": 11.531
-},
-{
-"name": "Uvesund bru",
-"kind": "bru",
-"lat": 60.169,
-"lon": 11.48
-},
-{
-"name": "Tinnbrua",
-"kind": "bru",
-"lat": 60.201,
-"lon": 11.494
-},
-{
-"name": "Kongsvingervegen",
-"kind": "bru",
-"lat": 60.259,
-"lon": 11.678
-},
-{
-"name": "Vikervegen",
-"kind": "bru",
-"lat": 60.298,
-"lon": 11.666
-},
-{
-"name": "Funni bru",
-"kind": "bru",
-"lat": 60.165,
-"lon": 11.528
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.182,
-"lon": 11.576
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.21,
-"lon": 11.645
-},
-{
 "name": "Kongsvingerbanen",
 "kind": "jernbanebru",
 "lat": 60.221,
@@ -172,104 +88,8 @@
 {
 "name": "bru",
 "kind": "bru",
-"lat": 60.232,
-"lon": 11.675
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.238,
-"lon": 11.746
-},
-{
-"name": "Slomarka bru",
-"kind": "bru",
-"lat": 60.247,
-"lon": 11.741
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.173,
-"lon": 11.569
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.247,
-"lon": 11.741
-},
-{
-"name": "bru",
-"kind": "bru",
 "lat": 60.255,
 "lon": 11.677
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.247,
-"lon": 11.747
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.259,
-"lon": 11.678
-},
-{
-"name": "Arnold Rørholts veg",
-"kind": "bru",
-"lat": 60.21,
-"lon": 11.645
-},
-{
-"name": "Gjersøybråtavegen",
-"kind": "bru",
-"lat": 60.183,
-"lon": 11.648
-},
-{
-"name": "Vangenvegen",
-"kind": "bru",
-"lat": 60.172,
-"lon": 11.648
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.271,
-"lon": 11.705
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.247,
-"lon": 11.747
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.283,
-"lon": 11.76
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.283,
-"lon": 11.752
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.273,
-"lon": 11.765
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.259,
-"lon": 11.678
 },
 {
 "name": "bru",
@@ -284,124 +104,10 @@
 "lon": 11.678
 },
 {
-"name": "Sjølivegen",
-"kind": "bru",
-"lat": 60.27,
-"lon": 11.506
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.244,
-"lon": 11.564
-},
-{
-"name": "Fløyta dammen",
-"kind": "bru",
-"lat": 60.254,
-"lon": 11.561
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.215,
-"lon": 11.508
-},
-{
-"name": "Oppsalbrua",
-"kind": "bru",
-"lat": 60.245,
-"lon": 11.506
-},
-{
-"name": "Ingeborgrud bru",
-"kind": "bru",
-"lat": 60.229,
-"lon": 11.508
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.21,
-"lon": 11.645
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.21,
-"lon": 11.645
-},
-{
-"name": "Sjølivegen",
-"kind": "bru",
-"lat": 60.273,
-"lon": 11.501
-},
-{
-"name": "Alfred Myrens veg",
-"kind": "bru",
-"lat": 60.256,
-"lon": 11.505
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.266,
-"lon": 11.68
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.266,
-"lon": 11.68
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.266,
-"lon": 11.68
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.266,
-"lon": 11.68
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.274,
-"lon": 11.746
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.265,
-"lon": 11.75
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.243,
-"lon": 11.721
-},
-{
 "name": "Kongsvingerbanen",
 "kind": "jernbanebru",
 "lat": 60.248,
 "lon": 11.674
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.21,
-"lon": 11.645
-},
-{
-"name": "Kongsvingerbanen",
-"kind": "jernbanebru",
-"lat": 60.21,
-"lon": 11.645
 },
 {
 "name": "bru",
@@ -422,40 +128,34 @@
 "lon": 11.674
 },
 {
-"name": "bru",
-"kind": "bru",
-"lat": 60.182,
-"lon": 11.576
+"name": "pier",
+"kind": "pier",
+"lat": 60.198,
+"lon": 11.581
 },
 {
-"name": "bru",
-"kind": "bru",
-"lat": 60.177,
-"lon": 11.524
+"name": "pier",
+"kind": "pier",
+"lat": 60.256,
+"lon": 11.676
 },
 {
-"name": "Fløytastien",
-"kind": "bru",
-"lat": 60.252,
-"lon": 11.56
+"name": "pier",
+"kind": "pier",
+"lat": 60.256,
+"lon": 11.676
 },
 {
-"name": "bru",
-"kind": "bru",
-"lat": 60.251,
-"lon": 11.56
+"name": "pier",
+"kind": "pier",
+"lat": 60.256,
+"lon": 11.676
 },
 {
-"name": "bru",
-"kind": "bru",
-"lat": 60.251,
-"lon": 11.56
-},
-{
-"name": "bru",
-"kind": "bru",
-"lat": 60.173,
-"lon": 11.57
+"name": "pier",
+"kind": "pier",
+"lat": 60.256,
+"lon": 11.676
 }
 ],
 "sideelver": [
@@ -544,23 +244,24 @@
 "merknad": "Fritt hele året i Glomma. Behold gjerne middels gjedde, sett ut de store."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 19,
+"n_region": 2509,
 "months": [
+271,
+8,
+3,
+5,
+66,
+32,
+892,
+736,
+119,
+26,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+2
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 2346633
 }
 },
 "abbor": {
@@ -577,23 +278,24 @@
 "merknad": "Fritt hele året."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 24,
+"n_region": 3763,
 "months": [
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+414,
+20,
+7,
+2,
+86,
+146,
+1494,
+757,
+179,
+120,
+7,
+4
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 8140485
 }
 },
 "orret": {
@@ -618,23 +320,24 @@
 "merknad": "Fredningstid og minstemål varierer per strekning – sjekk fiskekortet."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 14,
+"n_region": 2400,
 "months": [
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+305,
+5,
+1,
+15,
+33,
+104,
+643,
+257,
+705,
+59,
+75,
+14
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 8215487
 }
 },
 "harr": {
@@ -648,22 +351,23 @@
 },
 "gbif": {
 "n_area": 0,
-"n_region": 0,
+"n_region": 278,
 "months": [
+4,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
+1,
+7,
+30,
+33,
+19,
+10,
+2,
 0,
 0
 ],
-"presence": "usikker"
+"presence": "mulig",
+"taxonKey": 5203999
 }
 },
 "sik": {
@@ -677,22 +381,23 @@
 },
 "gbif": {
 "n_area": 0,
-"n_region": 0,
+"n_region": 534,
 "months": [
+13,
 0,
 0,
 0,
+1,
 0,
+25,
+114,
+46,
+169,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+1
 ],
-"presence": "usikker"
+"presence": "mulig",
+"taxonKey": 2351211
 }
 },
 "lake": {
@@ -706,22 +411,23 @@
 },
 "gbif": {
 "n_area": 0,
-"n_region": 0,
+"n_region": 1346,
 "months": [
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+35,
+9,
+12,
+1,
+16,
+24,
+240,
+706,
+27,
+49,
+3,
+3
 ],
-"presence": "usikker"
+"presence": "mulig",
+"taxonKey": 2415460
 }
 },
 "mort": {
@@ -734,23 +440,24 @@
 "merknad": "Fritt."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 17,
+"n_region": 2781,
 "months": [
+215,
+7,
+7,
+3,
+142,
+322,
+705,
+692,
+269,
+75,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+2
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 2359706
 }
 },
 "brasme": {
@@ -763,23 +470,24 @@
 "merknad": "Fritt."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 3,
+"n_region": 696,
 "months": [
+25,
 0,
 0,
+2,
+28,
+54,
+247,
+109,
+9,
+3,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
+1
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 9809222
 }
 },
 "vederbuk": {
@@ -792,23 +500,24 @@
 "merknad": "Fritt."
 },
 "gbif": {
-"n_area": 0,
-"n_region": 0,
+"n_area": 3,
+"n_region": 252,
 "months": [
+14,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
+14,
+4,
+4,
+20,
+6,
+9,
 0,
 0,
 0
 ],
-"presence": "usikker"
+"presence": "sikker",
+"taxonKey": 4409643
 }
 },
 "gjors": {
@@ -822,22 +531,23 @@
 },
 "gbif": {
 "n_area": 0,
-"n_region": 0,
+"n_region": 219,
 "months": [
 0,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
+1,
+3,
+3,
+7,
+9,
+36,
+1,
 0,
 0
 ],
-"presence": "usikker"
+"presence": "mulig",
+"taxonKey": 2382155
 }
 }
 },
@@ -911,5 +621,5 @@
 },
 "notes": "Midtre Glomma: rolige partier, sandbanker, mye vannvegetasjon, enkelte stryk. Gjedde og abbor er hovedartene. Storørret under Funnefoss på død agnfisk (kveld 18–21).\n",
 "disclaimer": "Sjekk gjeldende fiskekort og regler før du fisker – regler varierer per strekning og år.",
-"seconds": 2467
+"seconds": 30
 }

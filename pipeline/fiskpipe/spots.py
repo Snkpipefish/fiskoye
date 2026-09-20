@@ -87,7 +87,7 @@ def build_spots(segs: list[dict], species: dict, places: list[dict], access, riv
         s = sp.pop("_seg")
         side = sp["side"]
         p = nearest_place(sp["lat"], sp["lon"], places)
-        sp["navn"] = f"{p['name']}" if p else f"{river_name} km {s['km']:.1f}"
+        sp["navn"] = f"{p['name']} · km {s['km']:.1f}" if p else f"{river_name} km {s['km']:.1f}"
         sp["side_navn"] = s[f"side_navn_{side}"]
         sp["elv"], sp["km"] = river_name, round(s["km"], 2)
         sp["komponenter"] = static_components(s, side)

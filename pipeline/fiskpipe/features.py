@@ -48,14 +48,14 @@ def structure_features(segs: list[dict], tributaries: list[dict], bridges: list[
 
 
 def shade(segs: list[dict], hs: np.ndarray, transform, sample_fn) -> None:
-    """skygge per side = 0,6·trekroner + 0,4·(1 − hillshade(SV, 25°)) ved breddpunktet."""
+    """skygge per side = 0,5·trekroner + 0,5·(1 − hillshade(SV, 25°)) ved breddpunktet."""
     for side in ("v", "h"):
         xs = np.array([s["bank_xy"][side][0] for s in segs]); ys = np.array([s["bank_xy"][side][1] for s in segs])
         h = sample_fn(hs, transform, xs, ys)
         for s, hh in zip(segs, h):
             tre = s.get(f"tre_{side}")
             tre = 0.0 if tre is None or not np.isfinite(tre) else tre
-            s[f"skygge_{side}"] = float(np.clip(0.6 * tre + 0.4 * (1 - hh), 0, 1))
+            s[f"skygge_{side}"] = float(np.clip(0.5 * tre + 0.5 * (1 - hh), 0, 1))
 
 
 class AccessIndex:

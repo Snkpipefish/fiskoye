@@ -183,6 +183,7 @@ async function main() {
     skipIntro();
   })();
   await gotoArea(first.slug);
+  skipIntro();
 }
 
 main().catch((e) => { console.error(e); status('FEIL: ' + e.message); });

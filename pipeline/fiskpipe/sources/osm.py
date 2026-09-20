@@ -47,12 +47,12 @@ def waterways(bbox) -> list[dict]:
 
 def river_polygons(bbox) -> list[dict]:
     """Elveflater: natural=water + water=river|canal (veier og multipolygon-relasjoner) samt waterway=riverbank.
-    Geometrien klippes til bbox med out geom(bbox) – Glomma-relasjonene er ellers enorme.
+    Full geometri (out geom) – klipping med out geom(bbox) gir åpne ringer som ikke kan polygoniseres.
     Returnerer liste av {"outer": [[(lon,lat)...]], "inner": [[...]], "tags": {...}}."""
     b = _bbox_str(bbox)
     s, w, n, e = bbox
     q = (f'[out:json][timeout:240];(way["natural"="water"]["water"~"^(river|canal)$"]{b};way["waterway"="riverbank"]{b};'
-         f'relation["natural"="water"]["water"~"^(river|canal)$"]{b};relation["waterway"="riverbank"]{b};);out geom({s},{w},{n},{e});')
+         f'relation["natural"="water"]["water"~"^(river|canal)$"]{b};relation["waterway"="riverbank"]{b};);out geom;')
     out = []
     for e_ in _query(q)["elements"]:
         if e_.get("type") == "way" and e_.get("geometry"):
