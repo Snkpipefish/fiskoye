@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>FISKEØYE – Glomma-satellitt</title>
+  <meta name="description" content="Fiskeplasser, bittindeks og utstyrsråd for Glomma ved Skarnes – regnet fra satellitt, høydemodell, vær og vannføring. Åpne data." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23040b12'/><circle cx='16' cy='16' r='9' fill='none' stroke='%2337d3d8' stroke-width='2'/><circle cx='16' cy='16' r='3' fill='%2337d3d8'/></svg>" />
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="hud" class="hud">
+    <div class="hud-corner tl">
+      <div class="brand"><span class="dot"></span>FISKEØYE <span class="dim">// GLOMMA-SATELLITT</span></div>
+      <div id="status" class="mono">INIT…</div>
+      <div id="area-name" class="area"></div>
+      <div class="panel weather" id="weather-panel">
+        <div class="panel-title">FORHOLD <span class="dim" id="weather-when"></span></div>
+        <div id="weather" class="wx">Laster vær…</div>
+      </div>
+    </div>
+
+    <div class="hud-corner tr">
+      <div class="mono" id="clock"></div>
+      <div class="mono dim" id="coords">LAT — LON —</div>
+      <div class="panel scrub" id="scrub-panel">
+        <div class="panel-title">TIDSPUNKT <span class="key">← → ↑ ↓ T</span></div>
+        <div class="scrubrow">
+          <input type="date" id="scrub-date" />
+          <button class="btn small" id="scrub-now">NÅ</button>
+        </div>
+        <input type="range" id="scrub-hour" min="0" max="47" step="1" />
+        <div class="mono" id="scrub-label"></div>
+      </div>
+    </div>
+
+    <div class="hud-corner bl">
+      <div class="panel" id="layers-panel">
+        <div class="panel-title">KARTSTABEL <span class="key">M</span></div>
+        <div id="basemap-chips" class="chips"></div>
+        <div class="panel-title">LAG <span class="key">L</span></div>
+        <div id="layer-toggles" class="toggles"></div>
+        <div class="legend mono"><span class="lg" style="background:linear-gradient(90deg,hsl(195 70% 45%),hsl(60 90% 55%),hsl(25 95% 55%))"></span> bittindeks 0 → 100</div>
+      </div>
+    </div>
+
+    <div class="hud-corner br">
+      <div class="panel" id="species-panel">
+        <div class="panel-title">ARTER <span class="key">1–9</span></div>
+        <div id="species-list" class="list species"></div>
+        <div class="panel-title" id="area-title">OMRÅDE</div>
+        <div id="area-list" class="list"></div>
+        <div class="btnrow"><button class="btn" id="gps-btn">📍 MIN POSISJON</button><button class="btn" id="setup-btn">🎣 UTSTYR (U)</button></div>
+        <div class="links"><a href="./metode.html">METODE &amp; FORMLER</a> · <a href="#" id="help-link">HJELP (H)</a> · <a href="#" id="gpx-link" download>GPX ↓</a></div>
+      </div>
+    </div>
+
+    <div class="dock" id="dock">
+      <div class="panel dockpanel">
+        <div class="dockgrid">
+          <div id="clock-widget" class="clockwrap"></div>
+          <div class="dockright">
+            <div class="panel-title" id="dock-title">BITTINDEKS</div>
+            <div id="bite-now" class="bitenow"></div>
+            <div id="forecast" class="forecast"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="target" class="target hidden"></div>
+    <div id="setup" class="target setup hidden"></div>
+
+    <div id="intro" class="intro">
+      <div class="intro-text mono" id="intro-text"></div>
+      <button id="skip" class="btn">HOPP OVER</button>
+    </div>
+
+    <div id="help" class="help hidden">
+      <div class="help-box">
+        <h3>FISKEØYE – hjelp</h3>
+        <p>Fiskeplasser og bittindeks for Glomma ved Skarnes, regnet fra åpne data: OpenStreetMap (elveflate, bruer, veier), Kartverket (høydemodell), Copernicus Sentinel-2 (dybdeproxy, vegetasjon, sandbanker), Open-Meteo (vær, live), NVE (vannføring) og Esri World Imagery (satellittsjekk). Modellen er en beregning – ikke en fangstrapport.</p>
+        <table>
+          <tr><td><b>1–9</b></td><td>velg art</td></tr>
+          <tr><td><b>← → / ↑ ↓</b></td><td>flytt tidspunkt ±1 time / ±1 dag · <b>T</b> = nå</td></tr>
+          <tr><td><b>M</b></td><td>bytt kartstabel · <b>L</b> skjul/vis lagpanel</td></tr>
+          <tr><td><b>A / B / C</b></td><td>hopp til beste plass i klassen for valgt art</td></tr>
+          <tr><td><b>U</b></td><td>utstyrskort (sluk, agn, snøre, tid) for valgt art og forhold</td></tr>
+          <tr><td><b>klikk</b></td><td>på plass eller elvesegment: tall, formler og «hvorfor her»</td></tr>
+          <tr><td><b>📍</b></td><td>min posisjon med avstand til nærmeste plasser</td></tr>
+          <tr><td><b>H / Esc</b></td><td>denne hjelpen / lukk</td></tr>
+        </table>
+        <p class="legal" id="help-legal">Sjekk gjeldende fiskekort, fredningstider og minstemål før du fisker – regler varierer per strekning og år.</p>
+        <button class="btn" id="help-close">LUKK</button>
+      </div>
+    </div>
+    <div class="attrib mono" id="attrib">Kart: Esri · Kartverket (CC BY 4.0) · EOX Sentinel-2 cloudless (CC BY 4.0) · © OpenStreetMap-bidragsytere · Copernicus Sentinel · Vær: Open-Meteo (CC BY 4.0) · Vannføring: NVE (NLOD)</div>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

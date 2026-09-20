@@ -1,0 +1,154 @@
+{
+ "W": {
+  "sesong": 0.2,
+  "diel": 0.25,
+  "temp": 0.2,
+  "trykk": 0.1,
+  "vind": 0.05,
+  "lys": 0.05,
+  "flow": 0.1,
+  "klar": 0.05
+ },
+ "cases": [
+  {
+   "navn": "gjedde-okt-skumring",
+   "art": "gjedde",
+   "ctx": {
+    "doy": 280,
+    "hour": 18.5,
+    "sunrise": 7.3,
+    "sunset": 18.6,
+    "sun_alt": -1,
+    "tw": 11,
+    "dp3": -2,
+    "wind": 3,
+    "cloud": 80,
+    "a": -0.1,
+    "turb": 0.1
+   },
+   "A": 0.9224408944600501,
+   "comps": {
+    "sesong": 1.0,
+    "diel": 0.9650691177896806,
+    "temp": 0.7066482778577162,
+    "trykk": 1.0,
+    "vind": 1.0,
+    "lys": 1.0,
+    "flow": 0.9938461733264412,
+    "klar": 0.965
+   }
+  },
+  {
+   "navn": "gjedde-okt-middag",
+   "art": "gjedde",
+   "ctx": {
+    "doy": 280,
+    "hour": 13.0,
+    "sunrise": 7.3,
+    "sunset": 18.6,
+    "sun_alt": 25,
+    "tw": 11,
+    "dp3": 0,
+    "wind": 3,
+    "cloud": 10,
+    "a": -0.1,
+    "turb": 0.1
+   },
+   "A": 0.7737773931935882,
+   "comps": {
+    "sesong": 1.0,
+    "diel": 0.55,
+    "temp": 0.7066482778577162,
+    "trykk": 0.85,
+    "vind": 1.0,
+    "lys": 0.685,
+    "flow": 0.9938461733264412,
+    "klar": 0.965
+   }
+  },
+  {
+   "navn": "abbor-juli-kveld",
+   "art": "abbor",
+   "ctx": {
+    "doy": 200,
+    "hour": 21.0,
+    "sunrise": 4.3,
+    "sunset": 22.2,
+    "sun_alt": 5,
+    "tw": 19,
+    "dp3": 0.5,
+    "wind": 2,
+    "cloud": 30,
+    "a": null,
+    "turb": 0.0
+   },
+   "A": 0.9731449630580511,
+   "comps": {
+    "sesong": 1.0,
+    "diel": 0.896830059746869,
+    "temp": 1.0,
+    "trykk": 1.0,
+    "vind": 1.0,
+    "lys": 1.0,
+    "flow": 1.0,
+    "klar": 1.0
+   }
+  },
+  {
+   "navn": "lake-jan-natt",
+   "art": "lake",
+   "ctx": {
+    "doy": 20,
+    "hour": 23.0,
+    "sunrise": 9.0,
+    "sunset": 15.8,
+    "sun_alt": -30,
+    "tw": 1,
+    "dp3": -1.5,
+    "wind": 5,
+    "cloud": 100,
+    "a": 0.2,
+    "turb": 0.0
+   },
+   "A": 0.8544141000879676,
+   "comps": {
+    "sesong": 0.8,
+    "diel": 1.0,
+    "temp": 0.6065306597126334,
+    "trykk": 1.0,
+    "vind": 0.8666666666666667,
+    "lys": 1.0,
+    "flow": 0.9459594689067654,
+    "klar": 1.0
+   }
+  },
+  {
+   "navn": "orret-juni-flom",
+   "art": "orret",
+   "ctx": {
+    "doy": 165,
+    "hour": 10.0,
+    "sunrise": 3.9,
+    "sunset": 22.6,
+    "sun_alt": 45,
+    "tw": 13,
+    "dp3": 6,
+    "wind": 12,
+    "cloud": 0,
+    "a": 0.9,
+    "turb": 0.8
+   },
+   "A": 0.5848583209454018,
+   "comps": {
+    "sesong": 0.9921156373193167,
+    "diel": 0.4,
+    "temp": 0.9692332344763441,
+    "trykk": 0.6,
+    "vind": 0.3,
+    "lys": 0.5,
+    "flow": 0.2780373004531941,
+    "klar": 0.6
+   }
+  }
+ ]
+}

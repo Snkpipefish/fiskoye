@@ -1,0 +1,570 @@
+# Global artskatalog. Kurver leses av fiskpipe/suitability.py og web/src/model/curves.js med identisk semantikk.
+# habitat.dybde_m.trapes = [d0,d1,d2,d3]: 0 ved d0, 1 mellom d1..d2, 0 ved d3.  lin = [v0,v1]: 0 ved v0 -> 1 ved v1.
+# sesong.maaned = 12 verdier jan..des (0..1).  diel: daggry/skumring-topper (gauss sigma_h timer), dag/natt = grunnnivå.
+# vaer.vannforing.a_opt/sigma gjelder a = ln(Q / Q_median_måned).
+species:
+  gjedde:
+    navn: Gjedde
+    latin: Esox lucius
+    silhouette: fish/gjedde.svg
+    gruppe: rovfisk
+    habitat:
+      dybde_m: {trapes: [0.3, 1.0, 3.5, 7.0]}
+      strom: {stille: 1.0, svak: 0.8, moderat: 0.35, stryk: 0.05}
+      vegetasjon: {lin: [0.05, 0.5]}
+      struktur: {os: 0.8, sving: 0.4, innsnevring: 0.3, bukt: 1.0, dropoff: 0.7, bru: 0.3, dam: 0.2, sandbanke: 0.5}
+      skygge: {lin: [0.0, 0.6]}
+      temp_c: {opt: 16, sigma_lo: 6, sigma_hi: 4, min: 1, max: 26}
+      vekt: {dybde: 0.25, strom: 0.25, vegetasjon: 0.25, struktur: 0.2, skygge: 0.05}
+    sesong:
+      maaned: [0.45, 0.45, 0.6, 0.7, 0.75, 0.7, 0.6, 0.8, 1.0, 1.0, 0.8, 0.5]
+      gyting: {fra: [4, 10], til: [5, 15], effekt: 0.5}
+    diel: {daggry: 1.0, skumring: 1.0, dag: 0.55, natt: 0.25, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 1.0, stabil: 0.85, stigende: 0.7, raskt: 0.6}
+      vind: {opt_ms: 4, max_ms: 10}
+      lys: {overskyet: 1.0, sol: 0.65}
+      vannforing: {a_opt: -0.15, sigma: 0.45}
+      klarhet: {folsomhet: 0.35}
+      solunar: 0.2
+    utstyr:
+      snore: {hoved: "flettet 0,20–0,25 mm (15–20 kg)", fortom: "stålfortom 30–40 cm eller fluorokarbon 0,80–1,0 mm", krok: "enkeltkrok 1/0–4/0 eller treblekrok 1–2"}
+      stang: {lengde_cm: [240, 270], kastevekt_g: [20, 80], aksjon: medium-fast}
+      metoder:
+        - id: gummi
+          navn: Gummifisk / softbait
+          type: sluk
+          vekt_g: [15, 40]
+          storrelse_cm: [12, 20]
+          betingelser: {temp_c: [4, 24], strom: [stille, svak, moderat]}
+          farge: {klart_sol: "naturlig (mort, abbor)", klart_skygge: "hvit / perlemor", grumsete: "chartreuse, oransje eller sort med kraftig halevibrasjon"}
+          innsveiv: {kaldt: "sakte, lange pauser, bunnkontakt", varmt: "jevn med rykk, jerkbait-stil"}
+          tips: "Halevibrasjon i grumsete Glomma-vann. Fisk kanten av sivbeltet og dropoffen."
+        - id: skje
+          navn: Skjesluk (Abu Atom 20 g / Toby 18–28 g i strøm)
+          type: sluk
+          vekt_g: [18, 30]
+          storrelse_cm: [7, 10]
+          betingelser: {strom: [svak, moderat, stryk]}
+          farge: {klart_sol: "sølv / kobber", klart_skygge: "kobber / rød", grumsete: "fluo oransje / gul"}
+          innsveiv: {kaldt: "sakte med stopp", varmt: "jevn, la den vippe"}
+          tips: "Toby i strøm og stryk; Atom over grunne sandbanker."
+        - id: wobbler
+          navn: Wobbler (Rapala Original Floating 11–13 cm)
+          type: sluk
+          vekt_g: [10, 25]
+          storrelse_cm: [11, 13]
+          betingelser: {dybde_m: [0.5, 2.5], temp_c: [6, 26]}
+          farge: {klart_sol: "naturlig", klart_skygge: "abbor / firetiger", grumsete: "firetiger"}
+          innsveiv: {kaldt: "sakte med lange stopp", varmt: "twitch og pause"}
+          tips: "Flytende wobbler går klar av vegetasjon på grunt vann. Fra båt kan den slepes."
+        - id: agnfisk
+          navn: Død agnfisk (mort/laue) på flåte eller bunn
+          type: agn
+          agn: "død mort 10–15 cm, to trekroker på stålfortom"
+          betingelser: {temp_c: [0, 12]}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske, vent på løp", varmt: "stillefiske"}
+          tips: "Best i kaldt vann (vår, høst, vinter). Dupp eller flåte over vegetasjonskanten."
+        - id: flue
+          navn: Gjeddeflue over sivbelter
+          type: flue
+          betingelser: {temp_c: [10, 24], vind_ms: [0, 6], dybde_m: [0.3, 2.0]}
+          farge: {klart_sol: "naturlig hvit/oliven", klart_skygge: "hvit / chartreuse", grumsete: "sort / oransje"}
+          innsveiv: {kaldt: "sakte strip", varmt: "korte kast 5–10 m, raske strip"}
+          tips: "Korte kast over vannplanter som ikke når overflaten."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt hele året i Glomma. Behold gjerne middels gjedde, sett ut de store."}
+    tekst:
+      kjennetegn: "Lang, torpedoformet kropp, andenebb-liknende snute med kraftige tenner, ryggfinne langt bak."
+      forveksling: "Ingen i norske vann; små gjedder kan på avstand minne om gjørs (gjørs har to ryggfinner)."
+      kvalitet: "God matfisk, mange y-bein. Best 1–3 kg."
+      tips: "Står i bakevjer, bukter og sivkanter der Glomma flater ut. Fisk sakte i kaldt vann, jerkbait i august–oktober."
+
+  abbor:
+    navn: Abbor
+    latin: Perca fluviatilis
+    silhouette: fish/abbor.svg
+    gruppe: rovfisk
+    habitat:
+      dybde_m: {trapes: [0.5, 1.5, 6.0, 12.0]}
+      strom: {stille: 0.9, svak: 1.0, moderat: 0.5, stryk: 0.1}
+      vegetasjon: {lin: [0.0, 0.35]}
+      struktur: {os: 0.6, sving: 0.5, innsnevring: 0.4, bukt: 0.6, dropoff: 1.0, bru: 0.8, dam: 0.5, sandbanke: 0.4}
+      skygge: {lin: [0.0, 0.4]}
+      temp_c: {opt: 19, sigma_lo: 7, sigma_hi: 4, min: 3, max: 28}
+      vekt: {dybde: 0.25, strom: 0.2, vegetasjon: 0.15, struktur: 0.35, skygge: 0.05}
+    sesong:
+      maaned: [0.3, 0.3, 0.4, 0.6, 0.8, 0.9, 1.0, 1.0, 0.9, 0.6, 0.4, 0.3]
+      gyting: {fra: [4, 20], til: [5, 20], effekt: 0.6}
+    diel: {daggry: 0.9, skumring: 1.0, dag: 0.7, natt: 0.15, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.8, stabil: 1.0, stigende: 0.9, raskt: 0.6}
+      vind: {opt_ms: 3, max_ms: 9}
+      lys: {overskyet: 0.9, sol: 1.0}
+      vannforing: {a_opt: -0.2, sigma: 0.4}
+      klarhet: {folsomhet: 0.3}
+      solunar: 0.15
+    utstyr:
+      snore: {hoved: "flettet 0,10–0,14 mm eller nylon 0,20–0,25 mm", fortom: "fluorokarbon 0,25–0,35 mm (0,40 der gjedde er vanlig)", krok: "4–8 / jigghode 3–10 g"}
+      stang: {lengde_cm: [210, 240], kastevekt_g: [3, 20], aksjon: fast}
+      metoder:
+        - id: jigg
+          navn: Gummijigg 5–8 cm på 3–10 g jigghode
+          type: sluk
+          vekt_g: [3, 10]
+          storrelse_cm: [5, 8]
+          betingelser: {temp_c: [6, 26]}
+          farge: {klart_sol: "naturlig / motoroil", klart_skygge: "hvit / perlemor", grumsete: "chartreuse / rød"}
+          innsveiv: {kaldt: "hopp langs bunnen med pauser", varmt: "raske rykk, la den falle"}
+          tips: "Fisk dropoffen og brukarene. Storabbor står dypest."
+        - id: spinner
+          navn: Liten spinner (Mepps 2–3, kobber)
+          type: sluk
+          vekt_g: [4, 8]
+          storrelse_cm: [3, 5]
+          betingelser: {strom: [svak, moderat], temp_c: [8, 26]}
+          farge: {klart_sol: "sølv", klart_skygge: "kobber", grumsete: "kobber / fluo med større blad"}
+          innsveiv: {kaldt: "så sakte at bladet så vidt går", varmt: "jevn middels"}
+          tips: "Kobber er Glomma-klassikeren. Mørkere varianter om kvelden."
+        - id: mark
+          navn: Meitemark på dupp eller bunn
+          type: agn
+          agn: "meitemark, maggot eller liten mort"
+          betingelser: {}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske", varmt: "stillefiske, flytt ofte"}
+          tips: "Barnevennlig. 1–3 m dyp ved struktur. Sett duppen så agnet går like over bunnen."
+        - id: dropshot
+          navn: Dropshot med 5–7 cm gummi
+          type: sluk
+          vekt_g: [5, 15]
+          storrelse_cm: [5, 7]
+          betingelser: {temp_c: [4, 26], dybde_m: [2, 12]}
+          farge: {klart_sol: "naturlig", klart_skygge: "hvit", grumsete: "chartreuse"}
+          innsveiv: {kaldt: "stå stille, rist toppen", varmt: "små rykk, flytt 1 m om gangen"}
+          tips: "Når abboren står dypt ved brukar og dropoff."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt hele året."}
+    tekst:
+      kjennetegn: "Mørke tverrstriper, røde buk- og gattfinner, to ryggfinner med pigger."
+      forveksling: "Gjørs (slankere, tenner, uten røde finner) og hork (mindre, flekkete)."
+      kvalitet: "Svært god matfisk."
+      tips: "Storabbor (Skarnes-rekord 1,075 kg) står dypere ved brukar og dropoff; stim av små abbor i sivkanten."
+
+  orret:
+    navn: Ørret
+    latin: Salmo trutta
+    silhouette: fish/orret.svg
+    gruppe: laksefisk
+    habitat:
+      dybde_m: {trapes: [0.3, 0.8, 3.0, 6.0]}
+      strom: {stille: 0.25, svak: 0.6, moderat: 1.0, stryk: 0.9}
+      vegetasjon: {lin: [0.5, 0.0]}
+      struktur: {os: 0.9, sving: 0.6, innsnevring: 0.6, bukt: 0.3, dropoff: 0.6, bru: 0.5, dam: 1.0, sandbanke: 0.1}
+      skygge: {lin: [0.0, 0.5]}
+      temp_c: {opt: 12, sigma_lo: 5, sigma_hi: 4, min: 1, max: 20}
+      vekt: {dybde: 0.15, strom: 0.35, vegetasjon: 0.1, struktur: 0.3, skygge: 0.1}
+    sesong:
+      maaned: [0.2, 0.2, 0.35, 0.6, 0.9, 1.0, 0.7, 0.8, 0.9, 0.5, 0.25, 0.2]
+      gyting: {fra: [10, 1], til: [11, 15], effekt: 0.4}
+    diel: {daggry: 0.9, skumring: 1.0, dag: 0.4, natt: 0.35, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.9, stabil: 1.0, stigende: 0.8, raskt: 0.6}
+      vind: {opt_ms: 3, max_ms: 9}
+      lys: {overskyet: 1.0, sol: 0.5}
+      vannforing: {a_opt: 0.1, sigma: 0.5}
+      klarhet: {folsomhet: 0.5}
+      solunar: 0.1
+    utstyr:
+      snore: {hoved: "nylon 0,25–0,30 mm eller flettet 0,12–0,15 mm", fortom: "fluorokarbon 0,30–0,35 mm", krok: "trebl 6–8 / enkeltkrok 4–6"}
+      stang: {lengde_cm: [240, 270], kastevekt_g: [7, 30], aksjon: medium}
+      metoder:
+        - id: agnfisk
+          navn: Død agnfisk (mort/laue) i strømkanten
+          type: agn
+          agn: "død mort eller laue 8–12 cm på agnfisksystem"
+          betingelser: {temp_c: [2, 16], strom: [svak, moderat, stryk]}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "sakte langs bunnen i strømkanten", varmt: "sakte, la strømmen arbeide"}
+          tips: "Storørret under Funnefoss på død agnfisk. Beste tid 18–21 om kvelden."
+        - id: skje
+          navn: Skjesluk (Toby 12–18 g) i stryk
+          type: sluk
+          vekt_g: [12, 18]
+          storrelse_cm: [6, 8]
+          betingelser: {strom: [moderat, stryk], temp_c: [4, 18]}
+          farge: {klart_sol: "sølv / blå", klart_skygge: "kobber / gull", grumsete: "fluo oransje"}
+          innsveiv: {kaldt: "sakte på tvers av strømmen", varmt: "jevn, kast oppstrøms"}
+          tips: "Kast skrått oppstrøms og la sluken svinge gjennom strømkanten."
+        - id: spinner
+          navn: Spinner (Mepps 2–3)
+          type: sluk
+          vekt_g: [4, 8]
+          storrelse_cm: [3, 5]
+          betingelser: {strom: [svak, moderat, stryk], temp_c: [4, 20]}
+          farge: {klart_sol: "sølv", klart_skygge: "kobber", grumsete: "kobber / oransje"}
+          innsveiv: {kaldt: "sakte", varmt: "middels"}
+          tips: "Bak steiner og i bakevjer i stryket."
+        - id: flue
+          navn: Flue (nymfe/streamer i strøm, tørrflue i klekking)
+          type: flue
+          betingelser: {temp_c: [4, 20], vind_ms: [0, 7], strom: [svak, moderat, stryk]}
+          farge: {klart_sol: "naturlig, små nymfer", klart_skygge: "mørk streamer", grumsete: "stor mørk streamer"}
+          innsveiv: {kaldt: "dødt drev, dypt", varmt: "tørrflue i skumringen"}
+          tips: "Kveldsklekkinger i juni–juli. Streamer i skumring om høsten."
+    regler: {minstemal_cm: 30, fredning: null, fangstbegrensning: null, merknad: "Fredningstid og minstemål varierer per strekning – sjekk fiskekortet."}
+    tekst:
+      kjennetegn: "Røde og svarte prikker med lys ring, fettfinne, firkantet hale."
+      forveksling: "Laks (mer klipt hale, færre prikker under sidelinja) og røye (lyse prikker på mørk bunn)."
+      kvalitet: "Ypperlig matfisk."
+      tips: "I midtre Glomma står ørreten under kraftverk og i stryk. Fredet 15/9–31/10 på strekningen – fisk gjedde og abbor da."
+
+  harr:
+    navn: Harr
+    latin: Thymallus thymallus
+    silhouette: fish/harr.svg
+    gruppe: laksefisk
+    habitat:
+      dybde_m: {trapes: [0.3, 0.6, 2.5, 5.0]}
+      strom: {stille: 0.15, svak: 0.6, moderat: 1.0, stryk: 0.8}
+      vegetasjon: {lin: [0.4, 0.0]}
+      struktur: {os: 0.7, sving: 0.5, innsnevring: 0.6, bukt: 0.2, dropoff: 0.4, bru: 0.4, dam: 0.7, sandbanke: 0.5}
+      skygge: {lin: [0.0, 0.3]}
+      temp_c: {opt: 13, sigma_lo: 5, sigma_hi: 4, min: 1, max: 20}
+      vekt: {dybde: 0.2, strom: 0.4, vegetasjon: 0.1, struktur: 0.25, skygge: 0.05}
+    sesong:
+      maaned: [0.15, 0.15, 0.2, 0.3, 0.6, 0.9, 0.9, 1.0, 1.0, 0.8, 0.3, 0.15]
+      gyting: {fra: [4, 20], til: [5, 25], effekt: 0.3}
+    diel: {daggry: 0.8, skumring: 1.0, dag: 0.7, natt: 0.2, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.85, stabil: 1.0, stigende: 0.9, raskt: 0.6}
+      vind: {opt_ms: 2, max_ms: 8}
+      lys: {overskyet: 1.0, sol: 0.7}
+      vannforing: {a_opt: -0.1, sigma: 0.4}
+      klarhet: {folsomhet: 0.6}
+      solunar: 0.1
+    utstyr:
+      snore: {hoved: "nylon 0,18–0,22 mm eller flettet 0,08–0,10 mm", fortom: "fluorokarbon 0,18–0,22 mm", krok: "10–14"}
+      stang: {lengde_cm: [210, 270], kastevekt_g: [2, 12], aksjon: medium}
+      metoder:
+        - id: flue
+          navn: Tørrflue / nymfe
+          type: flue
+          betingelser: {temp_c: [4, 20], vind_ms: [0, 7], strom: [svak, moderat, stryk]}
+          farge: {klart_sol: "små lyse tørrfluer (14–18)", klart_skygge: "mørkere nymfer", grumsete: "større, tyngre nymfer"}
+          innsveiv: {kaldt: "nymfe dypt, dødt drev", varmt: "tørrflue i vaket"}
+          tips: "Harren vaker i strømkantene på ettermiddag/kveld. Små fluer, tynn fortom."
+        - id: spinner
+          navn: Liten spinner (Mepps 0–2)
+          type: sluk
+          vekt_g: [2, 5]
+          storrelse_cm: [2, 4]
+          betingelser: {strom: [svak, moderat, stryk], temp_c: [4, 20]}
+          farge: {klart_sol: "sølv", klart_skygge: "kobber", grumsete: "kobber / gul"}
+          innsveiv: {kaldt: "sakte", varmt: "middels"}
+          tips: "Kast på tvers, la den svinge ned strømmen."
+        - id: mark
+          navn: Mark på lett bunn eller dupp
+          type: agn
+          agn: "meitemark eller maggot"
+          betingelser: {}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske", varmt: "la agnet drive i strømmen"}
+          tips: "Enkelt og effektivt i strøm."
+    regler: {minstemal_cm: 30, fredning: null, fangstbegrensning: null, merknad: "Minstemål varierer (25–35 cm) – sjekk fiskekortet."}
+    tekst:
+      kjennetegn: "Stor, fargerik ryggfinne (seil), fettfinne, liten munn, sølvgrå med mørke prikker."
+      forveksling: "Sik (ingen stor ryggfinne) og ørret."
+      kvalitet: "God matfisk, lukter timian."
+      tips: "Strømkanter, sandbanker med moderat strøm og nedenfor stryk."
+
+  sik:
+    navn: Sik
+    latin: Coregonus lavaretus
+    silhouette: fish/sik.svg
+    gruppe: laksefisk
+    habitat:
+      dybde_m: {trapes: [0.8, 2.0, 8.0, 15.0]}
+      strom: {stille: 1.0, svak: 0.9, moderat: 0.4, stryk: 0.05}
+      vegetasjon: {lin: [0.5, 0.0]}
+      struktur: {os: 0.6, sving: 0.3, innsnevring: 0.3, bukt: 0.5, dropoff: 0.8, bru: 0.3, dam: 0.3, sandbanke: 0.7}
+      skygge: {lin: [0.0, 0.2]}
+      temp_c: {opt: 12, sigma_lo: 5, sigma_hi: 4, min: 1, max: 20}
+      vekt: {dybde: 0.35, strom: 0.3, vegetasjon: 0.1, struktur: 0.2, skygge: 0.05}
+    sesong:
+      maaned: [0.4, 0.3, 0.3, 0.4, 0.6, 0.9, 1.0, 1.0, 0.8, 0.5, 0.4, 0.4]
+      gyting: {fra: [10, 15], til: [11, 30], effekt: 0.5}
+    diel: {daggry: 0.8, skumring: 1.0, dag: 0.5, natt: 0.7, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.8, stabil: 1.0, stigende: 0.9, raskt: 0.6}
+      vind: {opt_ms: 2, max_ms: 8}
+      lys: {overskyet: 1.0, sol: 0.7}
+      vannforing: {a_opt: -0.2, sigma: 0.5}
+      klarhet: {folsomhet: 0.5}
+      solunar: 0.1
+    utstyr:
+      snore: {hoved: "nylon 0,18–0,22 mm", fortom: "fluorokarbon 0,16–0,20 mm", krok: "12–16"}
+      stang: {lengde_cm: [270, 360], kastevekt_g: [2, 15], aksjon: medium}
+      metoder:
+        - id: maggot
+          navn: Maggot / mark på lett bunnrigg
+          type: agn
+          agn: "maggot, meitemark, små larver"
+          betingelser: {}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske, lang fortom", varmt: "stillefiske"}
+          tips: "Sik har liten munn: små kroker (12–16) og små agn."
+        - id: flue
+          navn: Små fluer/nymfer i overflaten
+          type: flue
+          betingelser: {temp_c: [6, 20], vind_ms: [0, 5], strom: [stille, svak]}
+          farge: {klart_sol: "små lyse (16–18)", klart_skygge: "mørke små", grumsete: "–"}
+          innsveiv: {kaldt: "nymfe", varmt: "tørrflue når siken vaker om kvelden"}
+          tips: "Vakende sik i stille kveldsvann sommer/høst."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt."}
+    tekst:
+      kjennetegn: "Sølvblank, fettfinne, liten underbitt munn, store skjell."
+      forveksling: "Harr (stor ryggfinne), lagesild (mindre, overbitt)."
+      kvalitet: "God matfisk, fin røkt."
+      tips: "Dype rolige partier og sandbanker; vaker om kvelden."
+
+  lake:
+    navn: Lake
+    latin: Lota lota
+    silhouette: fish/lake.svg
+    gruppe: torskefisk
+    habitat:
+      dybde_m: {trapes: [1.0, 2.5, 10.0, 20.0]}
+      strom: {stille: 0.9, svak: 1.0, moderat: 0.6, stryk: 0.2}
+      vegetasjon: {lin: [0.5, 0.0]}
+      struktur: {os: 0.6, sving: 0.4, innsnevring: 0.5, bukt: 0.4, dropoff: 0.9, bru: 0.7, dam: 0.6, sandbanke: 0.2}
+      skygge: {lin: [0.0, 0.3]}
+      temp_c: {opt: 4, sigma_lo: 3, sigma_hi: 5, min: 0, max: 16}
+      vekt: {dybde: 0.35, strom: 0.2, vegetasjon: 0.1, struktur: 0.3, skygge: 0.05}
+    sesong:
+      maaned: [1.0, 1.0, 0.8, 0.4, 0.2, 0.1, 0.1, 0.1, 0.2, 0.5, 0.8, 1.0]
+      gyting: {fra: [1, 15], til: [2, 28], effekt: 0.8}
+    diel: {daggry: 0.6, skumring: 0.9, dag: 0.2, natt: 1.0, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 1.0, stabil: 0.9, stigende: 0.8, raskt: 0.7}
+      vind: {opt_ms: 3, max_ms: 12}
+      lys: {overskyet: 1.0, sol: 0.6}
+      vannforing: {a_opt: 0.0, sigma: 0.6}
+      klarhet: {folsomhet: 0.1}
+      solunar: 0.15
+    utstyr:
+      snore: {hoved: "nylon 0,30–0,35 mm eller flettet 0,15–0,20 mm", fortom: "nylon 0,35–0,40 mm", krok: "1–2/0 enkeltkrok"}
+      stang: {lengde_cm: [210, 270], kastevekt_g: [20, 80], aksjon: medium}
+      metoder:
+        - id: bunn
+          navn: Bunnmeite med agnfisk eller mark
+          type: agn
+          agn: "død mort/laue, reke eller stor meitemark på bunnen"
+          betingelser: {temp_c: [0, 14]}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske natt, lyskilde ved kroken hjelper", varmt: "stillefiske dypt"}
+          tips: "Nattfiske i november–mars. Dype hull nedenfor brukar og stryk."
+        - id: pilk
+          navn: Pilk med agn (isfiske)
+          type: sluk
+          vekt_g: [15, 40]
+          storrelse_cm: [5, 8]
+          betingelser: {temp_c: [0, 5], maaned: [12, 3]}
+          farge: {klart_sol: "sølv med rød", klart_skygge: "selvlysende", grumsete: "selvlysende / rød"}
+          innsveiv: {kaldt: "dunk pilken i bunnen, pauser", varmt: "–"}
+          tips: "Kveld og natt på isen, hvor Glomma er trygg. Sjekk isen!"
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt hele året."}
+    tekst:
+      kjennetegn: "Ålelignende, marmorert brun, én skjeggtråd på haken, lang gatt- og ryggfinne."
+      forveksling: "Ingen."
+      kvalitet: "God matfisk (lever og rogn er delikatesser)."
+      tips: "Vinterfisk: mest aktiv i kaldt vann, om natta og under gytinga i januar–februar."
+
+  mort:
+    navn: Mort
+    latin: Rutilus rutilus
+    silhouette: fish/mort.svg
+    gruppe: karpefisk
+    habitat:
+      dybde_m: {trapes: [0.2, 0.8, 3.0, 6.0]}
+      strom: {stille: 1.0, svak: 0.9, moderat: 0.3, stryk: 0.05}
+      vegetasjon: {lin: [0.0, 0.4]}
+      struktur: {os: 0.5, sving: 0.3, innsnevring: 0.2, bukt: 0.9, dropoff: 0.4, bru: 0.5, dam: 0.2, sandbanke: 0.4}
+      skygge: {lin: [0.0, 0.4]}
+      temp_c: {opt: 18, sigma_lo: 7, sigma_hi: 5, min: 3, max: 28}
+      vekt: {dybde: 0.25, strom: 0.3, vegetasjon: 0.2, struktur: 0.2, skygge: 0.05}
+    sesong:
+      maaned: [0.3, 0.3, 0.4, 0.6, 0.9, 1.0, 1.0, 0.9, 0.8, 0.6, 0.4, 0.3]
+      gyting: {fra: [5, 10], til: [6, 5], effekt: 0.7}
+    diel: {daggry: 0.9, skumring: 1.0, dag: 0.8, natt: 0.3, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.8, stabil: 1.0, stigende: 0.9, raskt: 0.6}
+      vind: {opt_ms: 2, max_ms: 8}
+      lys: {overskyet: 1.0, sol: 0.9}
+      vannforing: {a_opt: -0.2, sigma: 0.4}
+      klarhet: {folsomhet: 0.2}
+      solunar: 0.1
+    utstyr:
+      snore: {hoved: "nylon 0,14–0,18 mm", fortom: "nylon 0,12–0,16 mm", krok: "14–18"}
+      stang: {lengde_cm: [300, 400], kastevekt_g: [1, 10], aksjon: medium}
+      metoder:
+        - id: dupp
+          navn: Duppfiske med maggot/mark
+          type: agn
+          agn: "maggot, meitemark, brød, mais"
+          betingelser: {}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske nær bunnen", varmt: "stillefiske midt i vannet, forfôr"}
+          tips: "Forfôring samler stimen. Fin agnfisk til gjedde og ørret."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt."}
+    tekst:
+      kjennetegn: "Sølvblank med røde finner og rød iris."
+      forveksling: "Vederbuk (større, gul iris), laue (slankere)."
+      kvalitet: "Beinete; brukes som agnfisk."
+      tips: "Stimfisk i bukter og langs sivkanter."
+
+  brasme:
+    navn: Brasme
+    latin: Abramis brama
+    silhouette: fish/brasme.svg
+    gruppe: karpefisk
+    habitat:
+      dybde_m: {trapes: [0.8, 2.0, 6.0, 12.0]}
+      strom: {stille: 1.0, svak: 0.8, moderat: 0.2, stryk: 0.02}
+      vegetasjon: {lin: [0.0, 0.3]}
+      struktur: {os: 0.4, sving: 0.3, innsnevring: 0.1, bukt: 1.0, dropoff: 0.6, bru: 0.3, dam: 0.1, sandbanke: 0.2}
+      skygge: {lin: [0.0, 0.3]}
+      temp_c: {opt: 19, sigma_lo: 7, sigma_hi: 5, min: 4, max: 28}
+      vekt: {dybde: 0.3, strom: 0.35, vegetasjon: 0.1, struktur: 0.2, skygge: 0.05}
+    sesong:
+      maaned: [0.2, 0.2, 0.3, 0.5, 0.8, 1.0, 1.0, 0.9, 0.7, 0.4, 0.2, 0.2]
+      gyting: {fra: [5, 20], til: [6, 20], effekt: 0.6}
+    diel: {daggry: 1.0, skumring: 1.0, dag: 0.5, natt: 0.8, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.8, stabil: 1.0, stigende: 0.9, raskt: 0.6}
+      vind: {opt_ms: 3, max_ms: 8}
+      lys: {overskyet: 1.0, sol: 0.7}
+      vannforing: {a_opt: -0.25, sigma: 0.4}
+      klarhet: {folsomhet: 0.1}
+      solunar: 0.15
+    utstyr:
+      snore: {hoved: "nylon 0,20–0,25 mm", fortom: "nylon 0,16–0,20 mm", krok: "10–14"}
+      stang: {lengde_cm: [330, 390], kastevekt_g: [10, 60], aksjon: medium}
+      metoder:
+        - id: feeder
+          navn: Feeder/bunnmeite med maggot og mais
+          type: agn
+          agn: "maggot, mais, meitemark, brød"
+          betingelser: {temp_c: [6, 26]}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske dypt", varmt: "forfôr, stillefiske i skumring/natt"}
+          tips: "Dype rolige bukter med mudderbunn. Bobler på overflaten avslører stimen."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt."}
+    tekst:
+      kjennetegn: "Høy, sammenklemt kropp, bronsefarget, lang gattfinne, munn som kan skytes ut."
+      forveksling: "Flire (mindre, sølvblank)."
+      kvalitet: "Beinete; mest sportsfisk."
+      tips: "Stille, dype partier. Kveld og natt om sommeren."
+
+  vederbuk:
+    navn: Vederbuk
+    latin: Leuciscus idus
+    silhouette: fish/vederbuk.svg
+    gruppe: karpefisk
+    habitat:
+      dybde_m: {trapes: [0.3, 1.0, 4.0, 8.0]}
+      strom: {stille: 0.7, svak: 1.0, moderat: 0.7, stryk: 0.2}
+      vegetasjon: {lin: [0.0, 0.3]}
+      struktur: {os: 0.8, sving: 0.5, innsnevring: 0.4, bukt: 0.6, dropoff: 0.5, bru: 0.6, dam: 0.4, sandbanke: 0.5}
+      skygge: {lin: [0.0, 0.4]}
+      temp_c: {opt: 17, sigma_lo: 6, sigma_hi: 5, min: 3, max: 26}
+      vekt: {dybde: 0.2, strom: 0.35, vegetasjon: 0.1, struktur: 0.3, skygge: 0.05}
+    sesong:
+      maaned: [0.3, 0.3, 0.4, 0.8, 1.0, 0.9, 0.8, 0.8, 0.8, 0.6, 0.4, 0.3]
+      gyting: {fra: [4, 20], til: [5, 20], effekt: 0.6}
+    diel: {daggry: 1.0, skumring: 1.0, dag: 0.7, natt: 0.3, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.9, stabil: 1.0, stigende: 0.8, raskt: 0.6}
+      vind: {opt_ms: 3, max_ms: 8}
+      lys: {overskyet: 1.0, sol: 0.8}
+      vannforing: {a_opt: 0.0, sigma: 0.5}
+      klarhet: {folsomhet: 0.3}
+      solunar: 0.1
+    utstyr:
+      snore: {hoved: "nylon 0,20–0,25 mm", fortom: "fluorokarbon 0,20–0,25 mm", krok: "8–12"}
+      stang: {lengde_cm: [270, 330], kastevekt_g: [3, 20], aksjon: medium}
+      metoder:
+        - id: spinner
+          navn: Liten spinner/wobbler (vederbuken tar sluk)
+          type: sluk
+          vekt_g: [3, 8]
+          storrelse_cm: [3, 6]
+          betingelser: {temp_c: [8, 24]}
+          farge: {klart_sol: "sølv", klart_skygge: "kobber / gull", grumsete: "gull / oransje"}
+          innsveiv: {kaldt: "sakte", varmt: "middels, i strømkanten"}
+          tips: "Overraskende sterk fighter på lett utstyr."
+        - id: dupp
+          navn: Dupp med mark/maggot/brød
+          type: agn
+          agn: "meitemark, maggot, brød"
+          betingelser: {}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske", varmt: "stillefiske i strømkant"}
+          tips: "Ved os og under bruer om våren."
+    regler: {minstemal_cm: null, fredning: null, fangstbegrensning: null, merknad: "Fritt."}
+    tekst:
+      kjennetegn: "Kraftig sølv/gullaktig karpefisk med gul iris og rødlige finner, kan bli 2–3 kg."
+      forveksling: "Mort (rød iris, mindre), stam."
+      kvalitet: "Beinete."
+      tips: "Vandrer opp i sideelver om våren; store eksemplarer under bruer og ved os."
+
+  gjors:
+    navn: Gjørs
+    latin: Sander lucioperca
+    silhouette: fish/gjors.svg
+    gruppe: rovfisk
+    habitat:
+      dybde_m: {trapes: [1.5, 3.0, 8.0, 15.0]}
+      strom: {stille: 0.9, svak: 1.0, moderat: 0.4, stryk: 0.05}
+      vegetasjon: {lin: [0.4, 0.0]}
+      struktur: {os: 0.6, sving: 0.4, innsnevring: 0.4, bukt: 0.5, dropoff: 1.0, bru: 0.8, dam: 0.4, sandbanke: 0.3}
+      skygge: {lin: [0.0, 0.3]}
+      temp_c: {opt: 18, sigma_lo: 6, sigma_hi: 4, min: 5, max: 27}
+      vekt: {dybde: 0.35, strom: 0.2, vegetasjon: 0.1, struktur: 0.3, skygge: 0.05}
+    sesong:
+      maaned: [0.2, 0.2, 0.3, 0.5, 0.7, 1.0, 1.0, 0.9, 0.9, 0.7, 0.4, 0.2]
+      gyting: {fra: [5, 10], til: [6, 10], effekt: 0.5}
+    diel: {daggry: 0.8, skumring: 1.0, dag: 0.25, natt: 0.9, sigma_h: 1.5}
+    vaer:
+      trykk: {fallende: 0.9, stabil: 1.0, stigende: 0.8, raskt: 0.6}
+      vind: {opt_ms: 4, max_ms: 10}
+      lys: {overskyet: 1.0, sol: 0.4}
+      vannforing: {a_opt: -0.1, sigma: 0.5}
+      klarhet: {folsomhet: 0.0}
+      solunar: 0.2
+    utstyr:
+      snore: {hoved: "flettet 0,14–0,18 mm", fortom: "fluorokarbon 0,40–0,50 mm", krok: "jigghode 7–20 g, krok 1–3/0"}
+      stang: {lengde_cm: [240, 270], kastevekt_g: [7, 35], aksjon: fast}
+      metoder:
+        - id: jigg
+          navn: Gummijigg 8–12 cm langs bunnen
+          type: sluk
+          vekt_g: [7, 20]
+          storrelse_cm: [8, 12]
+          betingelser: {temp_c: [6, 26], dybde_m: [2, 15]}
+          farge: {klart_sol: "naturlig / gjennomsiktig", klart_skygge: "hvit / perlemor", grumsete: "chartreuse / selvlysende"}
+          innsveiv: {kaldt: "sakte hopp, lange pauser", varmt: "jevne hopp langs bunnen"}
+          tips: "Skumring og natt over dropoffer og dype kanter."
+        - id: agnfisk
+          navn: Død agnfisk på bunnrigg
+          type: agn
+          agn: "død mort/laue 8–12 cm"
+          betingelser: {temp_c: [4, 22]}
+          farge: {klart_sol: "–", klart_skygge: "–", grumsete: "–"}
+          innsveiv: {kaldt: "stillefiske", varmt: "stillefiske natt"}
+          tips: "Nattfiske ved dype kanter."
+    regler: {minstemal_cm: 42, fredning: null, fangstbegrensning: null, merknad: "Forekomst ved Skarnes er usikker (finnes lenger ned i Glomma). Minstemål 42 cm i nedre Glomma."}
+    tekst:
+      kjennetegn: "Slank, to ryggfinner, hoggtenner, glassaktige øyne, mørke tverrbånd."
+      forveksling: "Abbor (røde finner, kraftigere striper)."
+      kvalitet: "Utmerket matfisk."
+      tips: "Grumsete vann og lite lys er gjørsens fordel: skumring, natt, overskyet."

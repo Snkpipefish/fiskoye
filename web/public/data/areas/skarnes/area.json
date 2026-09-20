@@ -1,0 +1,915 @@
+{
+"slug": "skarnes",
+"name": "Glomma ved Skarnes",
+"region": "Sør-Odal, Innlandet",
+"bbox": [
+60.18,
+11.5,
+60.3,
+11.75
+],
+"view": [
+[
+60.2,
+11.55
+],
+[
+60.28,
+11.72
+]
+],
+"weather_point": [
+60.235,
+11.64
+],
+"generated": "2026-09-20T12:29:18+00:00",
+"stats": {
+"segmenter": 167,
+"spots": 42,
+"elveflater_osm": 0,
+"s2_scener": 3
+},
+"waters": [
+{
+"name": "Glomma",
+"kind": "river",
+"q_mean": 400,
+"manning_n": 0.035
+},
+{
+"name": "Oppstadåa",
+"kind": "river",
+"q_mean": 8,
+"manning_n": 0.04
+}
+],
+"q_ref": 320.0,
+"nve": {
+"stations": [],
+"q_monthly_median": null,
+"hints": {
+"station_hints": [
+"Skarnes",
+"Funnefoss",
+"Kongsvinger"
+],
+"params": {
+"q": 1001,
+"level": 1000,
+"tw": 1003
+}
+}
+},
+"structures": [
+{
+"name": "Funnefoss kraftverk",
+"kind": "dam",
+"lat": 60.205,
+"lon": 11.545
+},
+{
+"name": "Funnefoss",
+"kind": "dam",
+"lat": 60.168,
+"lon": 11.531
+},
+{
+"name": "dam/terskel",
+"kind": "dam",
+"lat": 60.169,
+"lon": 11.532
+},
+{
+"name": "dam/terskel",
+"kind": "dam",
+"lat": 60.263,
+"lon": 11.598
+},
+{
+"name": "dam/terskel",
+"kind": "dam",
+"lat": 60.263,
+"lon": 11.598
+},
+{
+"name": "dam/terskel",
+"kind": "dam",
+"lat": 60.254,
+"lon": 11.561
+},
+{
+"name": "dam/terskel",
+"kind": "dam",
+"lat": 60.247,
+"lon": 11.506
+},
+{
+"name": "Glomvegen",
+"kind": "bru",
+"lat": 60.257,
+"lon": 11.678
+},
+{
+"name": "Funnefoss bru",
+"kind": "bru",
+"lat": 60.168,
+"lon": 11.531
+},
+{
+"name": "Uvesund bru",
+"kind": "bru",
+"lat": 60.169,
+"lon": 11.48
+},
+{
+"name": "Tinnbrua",
+"kind": "bru",
+"lat": 60.201,
+"lon": 11.494
+},
+{
+"name": "Kongsvingervegen",
+"kind": "bru",
+"lat": 60.259,
+"lon": 11.678
+},
+{
+"name": "Vikervegen",
+"kind": "bru",
+"lat": 60.298,
+"lon": 11.666
+},
+{
+"name": "Funni bru",
+"kind": "bru",
+"lat": 60.165,
+"lon": 11.528
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.182,
+"lon": 11.576
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.221,
+"lon": 11.671
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.237,
+"lon": 11.674
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.232,
+"lon": 11.675
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.238,
+"lon": 11.746
+},
+{
+"name": "Slomarka bru",
+"kind": "bru",
+"lat": 60.247,
+"lon": 11.741
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.173,
+"lon": 11.569
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.247,
+"lon": 11.741
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.255,
+"lon": 11.677
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.247,
+"lon": 11.747
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.259,
+"lon": 11.678
+},
+{
+"name": "Arnold Rørholts veg",
+"kind": "bru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "Gjersøybråtavegen",
+"kind": "bru",
+"lat": 60.183,
+"lon": 11.648
+},
+{
+"name": "Vangenvegen",
+"kind": "bru",
+"lat": 60.172,
+"lon": 11.648
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.271,
+"lon": 11.705
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.247,
+"lon": 11.747
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.283,
+"lon": 11.76
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.283,
+"lon": 11.752
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.273,
+"lon": 11.765
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.259,
+"lon": 11.678
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.255,
+"lon": 11.677
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.257,
+"lon": 11.678
+},
+{
+"name": "Sjølivegen",
+"kind": "bru",
+"lat": 60.27,
+"lon": 11.506
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.244,
+"lon": 11.564
+},
+{
+"name": "Fløyta dammen",
+"kind": "bru",
+"lat": 60.254,
+"lon": 11.561
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.215,
+"lon": 11.508
+},
+{
+"name": "Oppsalbrua",
+"kind": "bru",
+"lat": 60.245,
+"lon": 11.506
+},
+{
+"name": "Ingeborgrud bru",
+"kind": "bru",
+"lat": 60.229,
+"lon": 11.508
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "Sjølivegen",
+"kind": "bru",
+"lat": 60.273,
+"lon": 11.501
+},
+{
+"name": "Alfred Myrens veg",
+"kind": "bru",
+"lat": 60.256,
+"lon": 11.505
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.266,
+"lon": 11.68
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.266,
+"lon": 11.68
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.266,
+"lon": 11.68
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.266,
+"lon": 11.68
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.274,
+"lon": 11.746
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.265,
+"lon": 11.75
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.243,
+"lon": 11.721
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.248,
+"lon": 11.674
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "Kongsvingerbanen",
+"kind": "jernbanebru",
+"lat": 60.21,
+"lon": 11.645
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.221,
+"lon": 11.671
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.237,
+"lon": 11.674
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.248,
+"lon": 11.674
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.182,
+"lon": 11.576
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.177,
+"lon": 11.524
+},
+{
+"name": "Fløytastien",
+"kind": "bru",
+"lat": 60.252,
+"lon": 11.56
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.251,
+"lon": 11.56
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.251,
+"lon": 11.56
+},
+{
+"name": "bru",
+"kind": "bru",
+"lat": 60.173,
+"lon": 11.57
+}
+],
+"sideelver": [
+{
+"name": "Sloa",
+"seg": 5,
+"L_up_m": 5420.506,
+"lat": 60.243,
+"lon": 11.74
+},
+{
+"name": "Mangåa",
+"seg": 8,
+"L_up_m": 6860.251,
+"lat": 60.243,
+"lon": 11.735
+},
+{
+"name": "Oppstadåa",
+"seg": 45,
+"L_up_m": 10432.303,
+"lat": 60.257,
+"lon": 11.679
+},
+{
+"name": "bekk",
+"seg": 75,
+"L_up_m": 3194.326,
+"lat": 60.23,
+"lon": 11.671
+},
+{
+"name": "Sjøåa",
+"seg": 85,
+"L_up_m": 11238.662,
+"lat": 60.222,
+"lon": 11.668
+},
+{
+"name": "Sæteråa",
+"seg": 105,
+"L_up_m": 12566.764,
+"lat": 60.211,
+"lon": 11.641
+},
+{
+"name": "bekk",
+"seg": 114,
+"L_up_m": 9711.256,
+"lat": 60.208,
+"lon": 11.627
+},
+{
+"name": "Dyståa",
+"seg": 145,
+"L_up_m": 12872.731,
+"lat": 60.196,
+"lon": 11.578
+},
+{
+"name": "Hørjua",
+"seg": 157,
+"L_up_m": 6181.843,
+"lat": 60.188,
+"lon": 11.566
+}
+],
+"fiskekort": [
+{
+"name": "Fiskekort Glomma (inatur)",
+"url": "https://www.inatur.no/fiske"
+}
+],
+"species": {
+"gjedde": {
+"presence": "sikker",
+"record": {
+"kg": 12.2,
+"year": 2003,
+"sted": "Sander"
+},
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt hele året i Glomma. Behold gjerne middels gjedde, sett ut de store."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"abbor": {
+"presence": "sikker",
+"record": {
+"kg": 1.075,
+"year": 2003,
+"sted": "Skarnes"
+},
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt hele året."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"orret": {
+"presence": "sikker",
+"record": {
+"kg": 2.475,
+"sted": "Funnefoss"
+},
+"regler": {
+"minstemal_cm": 30,
+"fredning": [
+[
+9,
+15
+],
+[
+10,
+31
+]
+],
+"fangstbegrensning": null,
+"merknad": "Fredningstid og minstemål varierer per strekning – sjekk fiskekortet."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"harr": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": 30,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Minstemål varierer (25–35 cm) – sjekk fiskekortet."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"sik": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"lake": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt hele året."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"mort": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"brasme": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"vederbuk": {
+"presence": "sikker",
+"record": null,
+"regler": {
+"minstemal_cm": null,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Fritt."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+},
+"gjors": {
+"presence": "mulig",
+"record": null,
+"regler": {
+"minstemal_cm": 42,
+"fredning": null,
+"fangstbegrensning": null,
+"merknad": "Forekomst ved Skarnes er usikker (finnes lenger ned i Glomma). Minstemål 42 cm i nedre Glomma."
+},
+"gbif": {
+"n_area": 0,
+"n_region": 0,
+"months": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"presence": "usikker"
+}
+}
+},
+"climate": {
+"ta_month_mean": [
+-5.1,
+-3.6,
+-0.0,
+4.8,
+10.6,
+15.0,
+16.8,
+15.1,
+11.5,
+5.8,
+1.2,
+-3.1
+],
+"tw_month_mean": [
+1.8,
+1.9,
+2.9,
+5.0,
+9.5,
+14.6,
+16.7,
+15.9,
+12.7,
+7.4,
+4.3,
+2.4
+],
+"precip_month_mean_mm": [
+53.0,
+52.0,
+38.0,
+49.0,
+67.0,
+93.0,
+107.0,
+103.0,
+88.0,
+76.0,
+70.0,
+56.0
+],
+"kilde": "Open-Meteo ERA5-arkiv, vanntemp = Mohseni(EWMA_7d(lufttemp))"
+},
+"s2": {
+"scener": [
+{
+"id": "S2C_33VUG_20250717_0_L2A",
+"datetime": "2025-07-17",
+"cloud": 0.0
+},
+{
+"id": "S2B_32VPM_20240905_1_L2A",
+"datetime": "2024-09-05",
+"cloud": 0.0
+},
+{
+"id": "S2C_32VPM_20250717_0_L2A",
+"datetime": "2025-07-17",
+"cloud": 0.0
+}
+],
+"grid_res_deg": [
+0.0,
+0.0
+]
+},
+"notes": "Midtre Glomma: rolige partier, sandbanker, mye vannvegetasjon, enkelte stryk. Gjedde og abbor er hovedartene. Storørret under Funnefoss på død agnfisk (kveld 18–21).\n",
+"disclaimer": "Sjekk gjeldende fiskekort og regler før du fisker – regler varierer per strekning og år.",
+"seconds": 2467
+}

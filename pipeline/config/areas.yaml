@@ -1,0 +1,32 @@
+# Områder. Koordinater WGS84 (lat, lon). bbox = [sør, vest, nord, øst].
+# q_mean = årsmiddel vannføring (m³/s) – brukes som referanse (0,8·q_mean) til NVE-serien er hentet.
+areas:
+  skarnes:
+    name: Glomma ved Skarnes
+    region: Sør-Odal, Innlandet
+    bbox: [60.18, 11.50, 60.30, 11.75]
+    utm_epsg: 25833
+    weather_point: [60.235, 11.64]
+    view: [[60.20, 11.55], [60.28, 11.72]]
+    waters:
+      - {name: Glomma, kind: river, osm_names: [Glomma, Glåma], manning_n: 0.035, q_mean: 400}   # ANTAKELSE til NVE-serie
+      - {name: Oppstadåa, kind: river, osm_names: [Oppstadåa, Oppstadåen], manning_n: 0.04, q_mean: 8}
+    nve:
+      station_hints: [Skarnes, Funnefoss, Kongsvinger]
+      params: {q: 1001, level: 1000, tw: 1003}      # verifiseres mot Hydapi ved første kjøring med nøkkel
+    structures:
+      - {name: Funnefoss kraftverk, kind: dam, lat: 60.205, lon: 11.545}   # koordinat sjekkes mot OSM
+    fiskekort:
+      - {name: "Fiskekort Glomma (inatur)", url: "https://www.inatur.no/fiske"}
+    rules_overrides:
+      orret: {fredning: [[9, 15], [10, 31]], minstemal_cm: 30}
+      harr: {minstemal_cm: 30}
+    species_present: {gjedde: sikker, abbor: sikker, orret: sikker, harr: sikker, sik: sikker, lake: sikker, mort: sikker, brasme: sikker, vederbuk: sikker, gjors: mulig}
+    records:
+      abbor: {kg: 1.075, year: 2003, sted: Skarnes}
+      gjedde: {kg: 12.2, year: 2003, sted: Sander}
+      orret: {kg: 2.475, sted: Funnefoss}
+    notes: >
+      Midtre Glomma: rolige partier, sandbanker, mye vannvegetasjon, enkelte stryk.
+      Gjedde og abbor er hovedartene. Storørret under Funnefoss på død agnfisk (kveld 18–21).
+    disclaimer: Sjekk gjeldende fiskekort og regler før du fisker – regler varierer per strekning og år.

@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+pipeline/cache/
+pipeline/out/
+# Node
+web/node_modules/
+web/dist/
+# Live data genereres i CI
+web/public/data/live/
+# misc
+.DS_Store
+*.log

@@ -1,0 +1,40 @@
+{
+ "generated": "2026-09-20T12:29:18+00:00",
+ "areas": [
+  {
+   "slug": "skarnes",
+   "name": "Glomma ved Skarnes",
+   "region": "Sør-Odal, Innlandet",
+   "bbox": [
+    60.18,
+    11.5,
+    60.3,
+    11.75
+   ],
+   "view": [
+    [
+     60.2,
+     11.55
+    ],
+    [
+     60.28,
+     11.72
+    ]
+   ],
+   "n_spots": 42,
+   "species": [
+    "gjedde",
+    "abbor",
+    "orret",
+    "harr",
+    "sik",
+    "lake",
+    "mort",
+    "brasme",
+    "vederbuk",
+    "gjors"
+   ],
+   "generated": "2026-09-20T12:29:18+00:00"
+  }
+ ]
+}

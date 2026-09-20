@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FISKEØYE – Metode og formler</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+  <style>
+    body { margin: 0; background: #04090f; color: #d9e6ee; font-family: Inter, system-ui, sans-serif; line-height: 1.55; }
+    main { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1, h2, h3 { font-family: "IBM Plex Mono", Menlo, monospace; letter-spacing: 0.08em; color: #37d3d8; }
+    h1 { font-size: 22px; } h2 { font-size: 16px; margin-top: 36px; border-bottom: 1px solid rgba(55,211,216,0.3); padding-bottom: 6px; } h3 { font-size: 13px; color: #9fd8ff; }
+    a { color: #37d3d8; } code { font-family: Menlo, monospace; background: #0b1520; padding: 1px 5px; border-radius: 3px; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; } td, th { border: 1px solid #22303c; padding: 6px 8px; text-align: left; vertical-align: top; } th { background: #0b1520; }
+    .warn { border: 1px solid #ffb547; background: rgba(255,181,71,0.08); padding: 12px 14px; border-radius: 4px; }
+    .back { font-family: Menlo, monospace; font-size: 12px; letter-spacing: 0.15em; }
+    .katex-display { overflow-x: auto; }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← TILBAKE TIL KARTET</a>
+  <h1>FISKEØYE – METODE OG FORMLER</h1>
+  <p>FISKEØYE beregner en <b>relativ bittindeks</b> per art, sted og tidspunkt for en elvestrekning. Alt er regnet fra åpne data: OpenStreetMap (elveflate, sideelver, bruer, dammer, veier), Kartverkets høydemodell (10 m), Copernicus Sentinel-2 (dybdeproxy, vegetasjon, sandbanker, sann-farge), Open-Meteo (vær, live i nettleseren), NVE Hydapi (vannføring, hentet hver 6. time) og Esri World Imagery (satellittutsnitt). Modellen er en beregning basert på erfaringsregler om artenes habitat og atferd – ikke fangstdata. Bruk den som et utgangspunkt, og la elva korrigere deg.</p>
+  <div class="warn"><b>Regler.</b> Fiskekort kreves i Glomma (innlandsfiske). Fredningstider og minstemål varierer mellom strekninger og fra år til år (ørret er f.eks. fredet 15.9–31.10 ved Skarnes, minstemål harr/ørret 25–35 cm). Artskortene viser reglene vi kjenner til, men <b>sjekk alltid gjeldende fiskekort</b>. Vis hensyn til gyteområder og kantvegetasjon.</div>
+
+  <h2>1. Kanal og hydraulikk</h2>
+  <p>Hovedløpet (OSM <code>waterway=river</code>) deles i 100 m-segmenter. Elvebredden per side måles ved å skjære en tverrlinje med OSM-elveflaten (<code>natural=water</code> + <code>water=river</code>); der flaten mangler brukes \(w = 3\sqrt{Q}\). Bukter og innsnevringer er lokale avvik fra løpende median over ±1 km:</p>
+  $$ \mathrm{bukt}_{side} = \mathrm{clip}\!\left(\frac{w_{side} - \tilde w_{side}}{\tilde w_{side}},0,1\right), \qquad \mathrm{innsnevring} = \mathrm{clip}\!\left(\frac{\tilde w - w}{\tilde w},0,1\right) $$
+  <p>Dybde \(h\) løses fra Mannings formel (biseksjon) ved referansevannføring \(Q_{ref}\) (augustmedian fra NVE, ellers 0,8 · årsmiddel), fall \(S\) fra høydemodellen (monotont nedstrøms, ±500 m, gulv 0,02 ‰) og ruhet \(n = 0{,}035\):</p>
+  $$ Q = \frac{1}{n}\, w\, h\, R^{2/3}\, S^{1/2}, \qquad R = \frac{wh}{w+2h}, \qquad v = \frac{Q}{wh} $$
+  <p>Strømklasse: stille \(v &lt; 0{,}15\), svak \(&lt; 0{,}4\), moderat \(&lt; 0{,}8\), stryk \(\ge 0{,}8\) m/s.</p>
+
+  <h2>2. Fjernmåling (Sentinel-2 L2A, 10 m)</h2>
+  <p>Median av inntil 3 skyfrie sommerscener (juni–september, sky &lt; 15 %). Vannmaske: SCL = 6 eller NDWI &gt; 0,1.</p>
+  $$ \text{NDVI} = \frac{B8 - B4}{B8 + B4}, \qquad \text{NDWI} = \frac{B3 - B8}{B3 + B8}, \qquad r = \frac{\ln(1000\,\rho_{B2})}{\ln(1000\,\rho_{B3})} $$
+  <p>\(r\) er Stumpf-ratioen (2003): den øker med dybden fordi grønt lys svekkes raskere enn blått. Den brukes bare relativt: \(z = (r - \mathrm{median})/(1{,}4826\cdot\mathrm{MAD})\) over hele elva. Dybdeestimat nær bredden: \(h_{est} = h\cdot e^{0{,}35 z}\). <b>Dropoff</b> per side = \(\mathrm{clip}((z_{midt} - z_{bredd})/1{,}5, 0, 1)\). <b>Vegetasjon</b> = andel piksler 5–30 m fra bredden med NDVI &gt; 0,25 og NDWI &gt; −0,25 (emergent/flytende vegetasjon; sensommerscener teller dobbelt). <b>Sandbanke</b> = andel med rød reflektans &gt; 0,10 i grunt vann. <b>Trekroner</b> på land (15–35 m utenfor bredden) = andel NDVI &gt; 0,55, som inngår i skygge: \(\mathrm{skygge} = 0{,}6\cdot\mathrm{trekroner} + 0{,}4\,(1 - \mathrm{hillshade}_{SV,25^\circ})\).</p>
+  <p>Grumsete vann og skygge fra bruer/skog forstyrrer ratioen. Derfor brukes den kun til rangering innenfor ett område, og dybden merkes «estimat».</p>
+
+  <h2>3. Habitat-egnethet \(H\) (statisk, per art og bredd)</h2>
+  <p>Hver art har egnethetskurver 0..1 i <code>species.yaml</code>: trapes for dybde, tabell for strømklasse, lineær for vegetasjon og skygge, og «noisy-OR» over strukturer (os, sving, innsnevring, bukt, dropoff, bru, dam, sandbanke) med artsspesifikke vekter \(w_k\):</p>
+  $$ f_{struktur} = 1 - \prod_k (1 - w_k x_k), \qquad H_{raw} = \exp\!\left(\frac{\sum_j v_j \ln \max(f_j, 0{,}02)}{\sum_j v_j}\right), \qquad H = 100\,\frac{H_{raw}}{P_{99}(H_{raw})} $$
+  <p>Det geometriske middelet gjør at én dårlig faktor (f.eks. stryk for gjedde) trekker hele plassen ned, mens noisy-OR belønner «minst én sterk struktur». \(H\) normaliseres per område, så tallene er bare sammenlignbare innenfor ett område.</p>
+  <table>
+    <tr><th>Art</th><th>Dybde (m) d0–d3</th><th>Strøm</th><th>Temp opt (°C)</th><th>Struktur-topp</th></tr>
+    <tr><td>Gjedde</td><td>0,3 / 1 – 3,5 / 7</td><td>stille &gt; svak</td><td>16</td><td>bukt, os, dropoff</td></tr>
+    <tr><td>Abbor</td><td>0,5 / 1,5 – 6 / 12</td><td>svak &gt; stille</td><td>19</td><td>dropoff, bru</td></tr>
+    <tr><td>Ørret</td><td>0,3 / 0,8 – 3 / 6</td><td>moderat &gt; stryk</td><td>12</td><td>dam, os</td></tr>
+    <tr><td>Harr</td><td>0,3 / 0,6 – 2,5 / 5</td><td>moderat &gt; stryk</td><td>13</td><td>os, dam, innsnevring</td></tr>
+    <tr><td>Sik</td><td>0,8 / 2 – 8 / 15</td><td>stille</td><td>12</td><td>dropoff, sandbanke</td></tr>
+    <tr><td>Lake</td><td>1 / 2,5 – 10 / 20</td><td>svak</td><td>4</td><td>dropoff, bru</td></tr>
+    <tr><td>Gjørs</td><td>1,5 / 3 – 8 / 15</td><td>svak</td><td>18</td><td>dropoff, bru</td></tr>
+  </table>
+
+  <h2>4. Bittindeks \(B\) (dynamisk, i nettleseren)</h2>
+  $$ B_s(t, \text{plass}) = H_s(\text{plass}) \cdot A_s(t) \cdot L_s(t, \text{plass}) $$
+  <p>Områdeaktiviteten \(A\) er et vektet geometrisk middel av faktorene under (vekter: sesong 0,20 · døgn 0,25 · vanntemp 0,20 · trykk 0,10 · vind 0,05 · lys 0,05 · vannføring 0,10 · sikt 0,05 · solunar \(k_{art}\)).</p>
+  <table>
+    <tr><th>Faktor</th><th>Formel</th><th>Kilde</th></tr>
+    <tr><td>Sesong</td><td>lineær interpolasjon av månedskurven på dag i året, × gyteeffekt i gytevinduet</td><td>species.yaml</td></tr>
+    <tr><td>Døgn</td><td>\(\max\big(\text{base},\ \text{daggry}\cdot G(t - t_{opp} - \tfrac12),\ \text{skumring}\cdot G(t - t_{ned} + \tfrac12)\big)\), \(G = e^{-\Delta^2/2\sigma^2}\), σ = 1,5 t; base = dag når solhøyde &gt; −6°, ellers natt</td><td>suncalc</td></tr>
+    <tr><td>Vanntemp</td><td>\(e^{-(T_w - T_{opt})^2/2\sigma^2}\) med σ_lo/σ_hi; gulv 0,05 utenfor [min, maks]</td><td>modell, se 5</td></tr>
+    <tr><td>Trykk</td><td>ΔP over 3 t: fallende (−4, −1] · stabil · stigende [1, 4) · raskt |ΔP| ≥ 4 hPa → artstabell</td><td>Open-Meteo</td></tr>
+    <tr><td>Vind</td><td>1 for \(v \le v_{opt}\), lineært til 0,4 ved \(v_{maks}\), 0,3 over</td><td>Open-Meteo</td></tr>
+    <tr><td>Lys</td><td>\(f_{sol}(1 - c) + f_{overskyet}\,c\) når solhøyde &gt; 10°, ellers 1</td><td>Open-Meteo skydekke</td></tr>
+    <tr><td>Vannføring</td><td>\(e^{-(a - a_{opt})^2/2\sigma^2}\), \(a = \ln(Q/Q_{median,måned})\); 1 uten NVE-data</td><td>NVE Hydapi</td></tr>
+    <tr><td>Sikt</td><td>\(1 - k\cdot\mathrm{turb}\), \(\mathrm{turb} = \mathrm{clip}(0{,}03\cdot\text{regn}_{72t} + 3\max(0, \Delta\ln Q_{24t}))\)</td><td>Open-Meteo + NVE</td></tr>
+    <tr><td>Solunar</td><td>\(1 - k + k\,S\), \(S = \max(G_{1t}(t - t_{major}),\ \tfrac12 G_{½t}(t - t_{minor}))\cdot\text{fase}\); major = månetransitt/anti-transitt, minor = måne opp/ned; fase 1,0 ved ny-/fullmåne ±2 d, ellers 0,8</td><td>suncalc</td></tr>
+  </table>
+  <p>Lokal modifikator for en bredd: \(L = \mathrm{clip}(1 + 0{,}15\,\mathrm{skygge}\cdot[\text{sol} &gt; 25^\circ](1-c) + 0{,}10\,[\text{pålandsvind, rovfisk}] - 0{,}25\max(0,a)[\text{moderat/stryk}],\ 0{,}6,\ 1{,}15)\).</p>
+
+  <h2>5. Vanntemperatur</h2>
+  <p>Lufttemperaturen glattes eksponentielt med tidskonstant 7 døgn (elva husker været en uke), og oversettes med Mohseni-logistikken for en stor lavlandselv:</p>
+  $$ \bar T_a(t) = \bar T_a(t-1) + \alpha\,(T_a - \bar T_a), \quad \alpha = 1 - e^{-1/168}, \qquad T_w = \mu + \frac{\alpha_M - \mu}{1 + e^{\gamma(\beta - \bar T_a)}}, \quad \mu = 0{,}5,\ \alpha_M = 24,\ \beta = 12,\ \gamma = 0{,}18 $$
+  <p>Finnes målt vanntemp fra NVE, korrigeres modellen med gjennomsnittlig avvik siste 20 døgn (merket ✓NVE i værpanelet).</p>
+
+  <h2>6. Utstyrsregler</h2>
+  <p>Hver art har metoder (sluk, agn, flue) med gyldighetsområder for vanntemp, strømklasse, dybde, vind og måned. Metodene rangeres etter hvor sentralt dagens forhold ligger i områdene. Farge velges etter <b>vann</b>: grumsete (turb &gt; 0,4), klart i sol, eller klart i svakt lys/skumring. Innsveiv etter vanntemp (&lt; 10 °C = kaldt). Størrelse i øvre halvdel når vannet er grumsete eller varmere enn 15 °C; vekt i øvre halvdel i stryk. Rådene bygger på lokale kilder for Glomma (bl.a. Perfish og fiskeguiden.no) og generell erfaring.</p>
+
+  <h2>7. Plasser, klasser og «hvorfor her»</h2>
+  <p>For hver art velges lokale maksima i \(H\) langs begge bredder med minst 300 m avstand (inntil 12). Klasse A: \(H \ge 75\), B: \(\ge 50\), C: under. En plass kan være A for gjedde og C for harr. Prosaen settes sammen av statiske komponenter (bukt, dropoff, os, vegetasjon, bru …) og dynamiske (døgnvindu, trykk, temperatur, sikt, vannføring, fredning).</p>
+
+  <h2>8. Kilder, lisenser og forbehold</h2>
+  <table>
+    <tr><th>Kilde</th><th>Bruk</th><th>Lisens</th></tr>
+    <tr><td>OpenStreetMap</td><td>elveflate, vassdrag, bruer, dammer, veier, stedsnavn, utsett</td><td>ODbL</td></tr>
+    <tr><td>Kartverket høydemodell (WCS) og topo (WMTS)</td><td>fall, hillshade, kart</td><td>CC BY 4.0</td></tr>
+    <tr><td>Copernicus Sentinel-2 L2A (Earth Search)</td><td>dybdeproxy, vegetasjon, sand, sann-farge</td><td>Copernicus (fri)</td></tr>
+    <tr><td>Open-Meteo</td><td>timevis vær 45 døgn bakover + 7 døgn varsel</td><td>CC BY 4.0</td></tr>
+    <tr><td>NVE Hydapi / Sildre</td><td>vannføring, vannstand, vanntemp</td><td>NLOD</td></tr>
+    <tr><td>Esri World Imagery, EOX S2 cloudless</td><td>bakgrunnskart, satellittutsnitt</td><td>Esri-vilkår / CC BY 4.0</td></tr>
+    <tr><td>GBIF / Artsdatabanken</td><td>bekrefter artsforekomst i området</td><td>CC BY 4.0</td></tr>
+  </table>
+  <ul>
+    <li>NVE-parameter-ID-er (1001 vannføring, 1000 vannstand, 1003 vanntemp) og stasjonsvalg verifiseres ved første kjøring med nøkkel. Uten NVE-data er vannføringsfaktoren 1.</li>
+    <li>Sentinel-2-dybden er relativ og ukalibrert; terskler for vegetasjon og sand er heuristikker.</li>
+    <li>Referansevannføringen (0,8 · årsmiddel 400 m³/s) er en antakelse til NVE-serien er hentet.</li>
+    <li>Gjørs ved Skarnes er merket «usikker». Alle vekter er ekspertvurderinger, ikke tilpasset fangstdata.</li>
+  </ul>
+</main>
+</body>
+</html>
